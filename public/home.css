@@ -137,8 +137,8 @@ a{
     background-color: #FFFFFF;
     z-index: 3;
     position: absolute;
-    opacity: 0.5;
-    margin-left: 16rem;
+    opacity: 0.75;
+    margin-left: 4rem;
     border-radius: 1rem;
 }
 
@@ -152,8 +152,9 @@ a{
     background-color: #FFFFFF;
     border-radius: 0.5cm;
     text-align: center;
-    
+    font-weight: bold;
     color: black;
+    margin-top: 0.1rem;
 }
 
 .cogform {
@@ -192,9 +193,9 @@ a{
     background-color: #FFFFFF;
     position: absolute;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.5;
     border-radius: 1rem;
-    margin-left: 12rem;
+    margin-left: 0rem;
     margin-top: 3rem;
 }
 
@@ -204,8 +205,8 @@ a{
     background-color: #FFFFFF;
     z-index: 2;
     position: absolute;
-    opacity: 0.3;
-    margin-left: 14rem;
+    opacity: 0.5;
+    margin-left: 2rem;
     border-radius: 1rem;
 }
 .google-sign-in-button {
@@ -271,8 +272,8 @@ a{
     background-color: #FFFFFF;
     z-index: 3;
     position: absolute;
-    opacity: 0.5;
-    margin-left: 14rem;
+    opacity: 0.75;
+    margin-left: 4rem;
     border-radius: 1rem;
 }
 .rectangle11 {
@@ -281,9 +282,9 @@ a{
     background-color: #FFFFFF;
     position: absolute;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.5;
     border-radius: 1rem;
-    margin-left: 10rem;
+    margin-left: 0rem;
     margin-top: 3rem;
 }
 
@@ -293,8 +294,8 @@ a{
     background-color: #FFFFFF;
     z-index: 2;
     position: absolute;
-    opacity: 0.3;
-    margin-left: 12rem;
+    opacity: 0.5;
+    margin-left: 2rem;
     border-radius: 1rem;
 }
 .cogform1 {
@@ -312,7 +313,7 @@ a{
     
 }
 #signupCoForm1 {
-    margin-top: 0rem;
+    margin-top: 2rem;
     color: black;
    
 }

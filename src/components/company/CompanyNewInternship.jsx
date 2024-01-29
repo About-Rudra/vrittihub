@@ -5,7 +5,7 @@ function CompanyNewInternship() {
     <div id="signupCoContainer">
         <div id="right">
             
-            <h1><br />Post new Internship:) </h1>
+            <h1><br />Post New Internship:) </h1>
          </div>
 
          <div id="signupCoForm1"><form>
@@ -13,7 +13,7 @@ function CompanyNewInternship() {
             <div class="rectangle22"></div>
             
             
-            <div class="signupCogroup">
+            <div class="signupCogroup1">
                 <h2 id="head1">Internship Details</h2>
                 <input type="text" class="cogform1" id="formGroupExampleInput" placeholder="Company Name" />
                 <input type="text" class="cogform1" id="formGroupExampleInput" placeholder="Qualification Required" />
