@@ -12,4 +12,5 @@ const Companydetails=[
         domain: "Design",
     }
 ]
+  
 export default Companydetails;

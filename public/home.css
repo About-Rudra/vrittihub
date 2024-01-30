@@ -153,8 +153,9 @@ a{
     border-radius: 0.5cm;
     text-align: center;
     font-weight: bold;
+    font-size: x-large;
     color: black;
-    margin-top: 0.1rem;
+    margin-top: 1rem;
 }
 
 .cogform {

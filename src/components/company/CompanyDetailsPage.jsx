@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import Header from "../general/Header";
 import CompanyDetailsProfileProps from "./CompanyDetailsProps";
-import CompanyDetailsEntry from "../company/CompanyDetailsEntry";
+//import CompanyDetailsEntry from "../company/CompanyDetailsEntry";
 
 function renderEntry(detail){
     return(
@@ -21,6 +21,17 @@ function renderEntry(detail){
 }
 
 function CompanyDetailsPage() {
+
+  const [greetings, setGreetings] = useState('');
+
+  useEffect(() => {
+    // Fetch data from the API endpoint
+    fetch('http://localhost:5000/api/data')
+      .then(response => response.json())
+      .then(jsondata => setGreetings(jsondata.message))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
   return (
 <div>
 <Header />
@@ -30,10 +41,8 @@ function CompanyDetailsPage() {
             <img src="https://imgs.search.brave.com/7c7uWwnjKKj5dXEQbj9HxKJqJrNIVoz7XJFbLmPVJyA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvcGZw/LXBpY3R1cmVzLWNx/anMzb3N2ZGxqdGho/NTMuanBn" height="80%" width="100%" alt="" />
         </div>
         <div class="CDP">
-             
-            
             <div class="profileText">
-            {CompanyDetailsEntry.map(renderEntry)}
+            From virtihub {greetings}
             </div>
 
             <button type="submit" class="btn btn-primary" id="submitButton" >Send Invite</button>
