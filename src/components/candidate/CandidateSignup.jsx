@@ -17,7 +17,7 @@ function CandidateSignup() {
     console.log('Submit event fired: ', JSON.stringify(formData));
 
     // Process the form data (e.g., send it to the server)
-    fetch('http://localhost:5000/', {
+    fetch('http://localhost:5000/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ function CandidateSignup() {
                 <label for="copass"></label>
                 <input type="password" class="cogform"  aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
                 
-                <button type="submit" class="signupco" onClick={navigateToCandidateDetailsForm}>Submit</button>
+                <button type="submit" class="signupco" >Submit</button>
                 <button type="button" class="google-sign-in-button" >
                     Sign in with Google
                   </button>

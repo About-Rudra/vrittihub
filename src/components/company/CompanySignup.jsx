@@ -72,7 +72,7 @@ function CompanySignup() {
                         <label for="copass"></label>
                         <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
 
-                                <button type="submit" class="signupco" onClick={navigateToCompanyDetailsForm}>Submit</button>
+                                <button type="submit" class="signupco" >Submit</button>
                                 <button type="button" class="google-sign-in-button" >
                                     Sign in with Google
                                 </button>

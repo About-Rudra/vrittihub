@@ -72,7 +72,7 @@ function CandidateLogin() {
                 <form onSubmit={handleSubmit}>
                 <input type="email" class="cogform"  aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
                 <input type="password" class="cogform"  aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-                <button type="submit" class="signupco" onClick={navigateToCandidateProfilePage}>Submit</button>
+                <button type="submit" class="signupco" >Submit</button>
                 </form>
             </div>
              

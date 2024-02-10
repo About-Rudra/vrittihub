@@ -74,7 +74,7 @@ function CompanyLogin() {
                 <input type="email" class="cogform"  aria-describedby="cemail"  name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
                 <label for="copass"></label>
                 <input type="password" class="cogform"  aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-                <button type="submit" class="signupco" onClick={navigateToCompanyProfilePage}>Submit</button>
+                <button type="submit" class="signupco">Submit</button>
                 </form>
             </div>
              
