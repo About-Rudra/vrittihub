@@ -79,7 +79,7 @@ function CompanyDetailsForm() {
             <input type="text" class="cogform1" id="jd" name="jd" value={formData.jd} onChange={handleInputChange} placeholder="Job Description" />
             <input type="text" class="cogform1" id="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email ID" />
             <input type="text" class="cogform1" id="location" name="location" value={formData.location} onChange={handleInputChange} placeholder="Location" />
-            <input type="text" class="cogform1" id="interesteddomain" name="interesteddomain" value={formData.name} onChange={handleInputChange} placeholder="Interested Domain" />
+            <input type="text" class="cogform1" id="interesteddomain" name="interesteddomain" value={formData.interesteddomain} onChange={handleInputChange} placeholder="Interested Domain" />
             <label class="form-label" id="photolabel" for="customFile">Upload Photo</label>
             <input type="file" class="form-label" id="customFile" />
             <button type="submit" class="signupco1" >Submit</button>
