@@ -17,7 +17,7 @@ function CompanySignup() {
         console.log('Submit event fired: ', JSON.stringify(formData));
     
         // Process the form data (e.g., send it to the server)
-        fetch('http://localhost:5000/', {
+        fetch('http://localhost:5000/register2', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

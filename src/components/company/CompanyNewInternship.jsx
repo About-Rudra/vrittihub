@@ -28,7 +28,7 @@ function CompanyNewInternship() {
     e.preventDefault();
     console.log('Submit event fired: ', JSON.stringify(formData));
 
-    fetch('http://localhost:5000/', {
+    fetch('http://localhost:5000/postinternship', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
