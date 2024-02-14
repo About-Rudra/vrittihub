@@ -2,6 +2,7 @@ import React from "react";
 import CompanyDetailsEntry from "../company/CompanyDetailsEntry";
 import CandidateExploreProps from "./CandidateExploreProps";
 import Header1 from "../general/Header1";
+import Cookies from 'js-cookie';
 
 function renderEntry(detail){
     return(

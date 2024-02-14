@@ -1,30 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import Header from "../general/Header";
 import CandidateDetailsProps from "./CandidateDetailsProps";
 import CandidateDetailsEntry from "../candidate/CandidateDetailsEntry";
 import InviteModal from "../general/InviteModal";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateNewInternship from "./CandidateNewInternship";
+import Cookies from 'js-cookie';
 
-function renderEntry(detail){
-    return(
-        <CandidateDetailsProps 
-            key={detail.id}
-            candidateName={detail.candidateName}
-            qualification={detail.qualification}
-            contactNumber={detail.contactNumber}
-            collegeName={detail.collegeName}
-            skillsAcheivements={detail.skillsAcheivements}
-            bio={detail.bio}
-            emailid={detail.emailid}
-            location={detail.location}
-            interests={detail.interests}
-        />
-    );
-}
+// function renderEntry(detail){
+//     return(
+//         <CandidateDetailsProps 
+//             key={detail.id}
+//             candidateName={detail.candidateName}
+//             qualification={detail.qualification}
+//             contactNumber={detail.contactNumber}
+//             collegeName={detail.collegeName}
+//             skillsAcheivements={detail.skillsAcheivements}
+//             bio={detail.bio}
+//             emailid={detail.emailid}
+//             location={detail.location}
+//             interests={detail.interests}
+//         />
+//     );
+// }
 
 
 function CandidateProfilePage() {
+
+    const email = Cookies.get('email');
+    console.log("Retrieved email as: " + email);
+
+    const [studentDetails, setStudentDetails] = useState([]);
+
+    useEffect(() => {
+        // Fetch student details from the API
+        fetch(`http://localhost:5000/studentprofilepage/${email}`)
+            .then(response => response.json())
+            .then(data => {
+                // Assign the fetched data to the studentDetails variable
+                setStudentDetails(data);
+                console.log(studentDetails)
+            })
+            .catch(error => console.error('Error fetching student details:', error));
+    }, []); // Empty dependency array to fetch data only once when the component mounts
+
+
+
+
     const navigate = useNavigate();
 
     function navigateToCandidateNewInternship(){
@@ -48,7 +70,8 @@ function CandidateProfilePage() {
             
 
             <div className="profileText">
-            {CandidateDetailsEntry.map(renderEntry)}
+            {/* {CandidateDetailsEntry.map(renderEntry)} */}
+            <h1>email id: {}</h1>
             </div>
 
             <button type="submit" className="btn btn-primary" id="submitButton" >Edit</button>
