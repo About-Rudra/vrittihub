@@ -24,8 +24,8 @@ import CandidateDetailsEntry from "../candidate/CandidateDetailsEntry";
 // }
 
 function CandidateDetailsPage() {
-    
-    
+
+
 
     // const email = Cookies.get('email');
     const email = Cookies.get('email');
@@ -46,7 +46,7 @@ function CandidateDetailsPage() {
     }, []); // Empty dependency array to fetch data only once when the component mounts
 
 
-    
+
     return (
         <div>
             <Header />
@@ -60,20 +60,24 @@ function CandidateDetailsPage() {
 
 
                     <div className="profileText">
-                    
+
                         {/* {CandidateDetailsEntry.map(renderEntry)} */}
                         {studentDetails ? (
                             <div>
-                                <h1>Name: {studentDetails.name}</h1>
-                                <p>Email: {studentDetails.email}</p>
+                                <h1>I'm {studentDetails.name}!</h1>
+                                <p>{studentDetails.achievements}</p>
                                 <p>Qualification: {studentDetails.qualification}</p>
                                 <p>Contact Number: {studentDetails.contact_no}</p>
-                                {/* Add more details as needed */}
+                                <p>College Name: {studentDetails.college_name}</p>
+                                <p>Skills/Acheivements: {studentDetails.skills}</p>
+                                <p>Email id: {studentDetails.email}</p>
+                                <p>location: {studentDetails.locations}</p>
+                                <p>Interests: {studentDetails.interested_internship}</p>
                             </div>
                         ) : (
                             <p>No student details available</p>
                         )}
-                    
+
                     </div>
 
                     <button type="submit" className="btn btn-primary" id="submitButton" >Send Invite</button>

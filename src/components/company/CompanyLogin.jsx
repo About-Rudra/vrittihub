@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CompanyDetailsPage from "./CompanyDetailsPage";
 import CompanyProfilePage from "./CompanyProfilePage";
+import Cookies from 'js-cookie';
 
 function CompanyLogin() {
 
@@ -25,19 +26,27 @@ function CompanyLogin() {
       },
       body: JSON.stringify(formData),
     })
-      .then((response) => {
-        console.log('Data posted successfully:', response);
-        // Optionally, update UI based on response
-      })
-      .catch((error) => {
-        console.error('Error posting data:', error);
-        // Optionally, handle error
-      });
+    .then((response) => {
+      console.log('Received response:', response);
+      if(response.ok) {
+        // Set the email id in a cookie
+        Cookies.set('email', formData.email);
+        navigateToCompanyProfilePage();
+      } else {
+        console.log("Error received from backend: " + response.status);
+      }
+      
+      // Reset form fields
+      setFormData({ email: '', password: '' });
+    })
+    .catch((error) => {
+      console.error('Error posting data:', error);
+      // Optionally, handle error
+    });
 
-    console.log('Form submitted:', formData);
-    // Reset form fields
-    setFormData({  email: '', password: ''});
-  };
+  console.log('Form submitted:', formData);
+  
+};
 
   // Function to handle input changes and update state
   const handleInputChange = (event) => {

@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CompanyDetailsForm from "./CompanyDetailsForm";
+import Cookies from 'js-cookie';
 
 function CompanySignup() {
 
@@ -25,8 +26,26 @@ function CompanySignup() {
           body: JSON.stringify(formData),
         })
           .then((response) => {
-            console.log('Data posted successfully:', response);
-            // Optionally, update UI based on response
+            console.log('Received response:', response);
+            console.log("Email used for registration: " + formData.email);
+            
+            if(response.ok) {
+              // Set the email id in a cookie
+              console.log("All Ok");
+              Cookies.set('email', formData.email);
+            } else {
+              if(response.status === 400) {
+                //Bad request - User already exists
+                //Show to UI
+                console.log("Received bad request from backend");
+              } else {
+                //Show message to UI to try again
+                console.log("Backend error: " + response.status);
+              }
+            }
+            // Reset form fields
+        setFormData({  email: '', password: ''});
+        navigateToCompanyDetailsForm()
           })
           .catch((error) => {
             console.error('Error posting data:', error);
@@ -34,8 +53,7 @@ function CompanySignup() {
           });
     
         console.log('Form submitted:', formData);
-        // Reset form fields
-        setFormData({  email: '', password: ''});
+        
       };
     
       // Function to handle input changes and update state
@@ -49,6 +67,11 @@ function CompanySignup() {
     function navigateToCompanyDetailsForm(){
         navigate('/companydetails')
     }
+
+    if (formData === '') {
+      navigate('/candidatesignup')
+    }
+
     return (
 
         <div id="signupCoContainer" >

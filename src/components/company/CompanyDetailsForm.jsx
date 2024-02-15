@@ -36,9 +36,8 @@ function CompanyDetailsForm() {
       },
       body: JSON.stringify(formData),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Data posted successfully:', data);
+      .then((response) => {
+        console.log('Data posted successfully:', response);
         // Optionally, update UI based on response
       })
       .catch((error) => {

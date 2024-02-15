@@ -18,13 +18,15 @@ function CandidateSignup() {
     console.log('Submit event fired: ', JSON.stringify(formData));
 
     // Process the form data (e.g., send it to the server)
-    fetch('http://localhost:5000/register', {
+    fetch("http://localhost:5000/register", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
+      
     })
+    
       .then((response) => {
         console.log('Received response:', response);
         console.log("Email used for registration: " + formData.email);
@@ -80,20 +82,20 @@ function CandidateSignup() {
       </div>
 
       <div id="signupCoForm">
-        <div class="rectangle1"></div>
-        <div class="rectangle2"></div>
+        <div className="rectangle1"></div>
+        <div className="rectangle2"></div>
 
 
         <div class="signupCogroup">
           <h2 id="head1">Candidate Sign Up</h2>
           <form onSubmit={handleSubmit}>
-            <label for="coemail"></label>
-            <input type="email" class="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
-            <label for="copass"></label>
-            <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
+            <label></label>
+            <input type="email" className="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
+            <label></label>
+            <input type="password" className="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
 
-            <button type="submit" class="signupco">Submit</button>
-            <button type="button" class="google-sign-in-button" >
+            <button type="submit" className="signupco">Submit</button>
+            <button type="button" className="google-sign-in-button" >
               Sign in with Google
             </button>
           </form>

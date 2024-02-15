@@ -34,7 +34,7 @@ function CandidateProfilePage() {
 
     useEffect(() => {
         // Fetch student details from the API
-        fetch(`http://localhost:5000/studentprofilepage/${email}`)
+        fetch(`http://localhost:5000/studentdetails/${email}`)
             .then(response => response.json())
             .then(data => {
                 // Assign the fetched data to the studentDetails variable
@@ -71,7 +71,21 @@ function CandidateProfilePage() {
 
             <div className="profileText">
             {/* {CandidateDetailsEntry.map(renderEntry)} */}
-            <h1>email id: {}</h1>
+            {studentDetails ? (
+                            <div>
+                                <h1>I'm {studentDetails.name}!</h1>
+                                <p>{studentDetails.achievements}</p>
+                                <p>Qualification: {studentDetails.qualification}</p>
+                                <p>Contact Number: {studentDetails.contact_no}</p>
+                                <p>College Name: {studentDetails.college_name}</p>
+                                <p>Skills/Acheivements: {studentDetails.skills}</p>
+                                <p>Email id: {studentDetails.email}</p>
+                                <p>location: {studentDetails.locations}</p>
+                                <p>Interests: {studentDetails.interested_internship}</p>
+                            </div>
+                        ) : (
+                            <p>No student details available</p>
+                        )}
             </div>
 
             <button type="submit" className="btn btn-primary" id="submitButton" >Edit</button>
