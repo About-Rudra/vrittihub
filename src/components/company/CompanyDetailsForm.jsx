@@ -25,9 +25,14 @@ function CompanyDetailsForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     console.log('Submit event fired: ', JSON.stringify(formData));
+    if (Object.values(formData).some(value => value.trim() === '')) {
+      // At least one field is empty, display error message or prevent navigation
+      alert('Please fill out all fields');
+      return; // Exit early, don't proceed to next page
+    };
 
     fetch('http://localhost:5000/companydetails', {
       method: 'POST',
@@ -48,6 +53,7 @@ function CompanyDetailsForm() {
       console.log('Form submitted:', formData);
     // Reset form fields
     setFormData({ companyname: '', qualification: '', contactnumber: '', position: '', skills: '', jd: '', email: '', location: '', interesteddomain: ''});
+    navigateToCompanyProfilePage();
   };
 
   const navigate = useNavigate();

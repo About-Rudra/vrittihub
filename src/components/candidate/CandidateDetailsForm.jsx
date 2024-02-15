@@ -18,6 +18,11 @@ function CandidateDetailsForm() {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     console.log('Submit event fired: ', JSON.stringify(formData));
+    if (Object.values(formData).some(value => value.trim() === '')) {
+      // At least one field is empty, display error message or prevent navigation
+      alert('Please fill out all fields');
+      return; // Exit early, don't proceed to next page
+    };
 
     // Process the form data (e.g., send it to the server)
     fetch('http://localhost:5000/studentdetails', {
@@ -39,6 +44,7 @@ function CandidateDetailsForm() {
     console.log('Form submitted:', formData);
     // Reset form fields
     setFormData({ name: '', qualification: '', email: '', skills: '', achievements: '', contactno: '', interestedinternship: '', collegename: '' });
+    navigateToCandidateProfilePage();
   };
 
   // Function to handle input changes and update state

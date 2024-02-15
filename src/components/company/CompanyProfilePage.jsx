@@ -5,23 +5,9 @@ import CompanyDetailsEntry from "../company/CompanyDetailsEntry";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CompanyNewInternship from "./CompanyNewInternship";
 import Cookies from 'js-cookie';
+import CompanyInvites from "./CompanyInvites";
+import CompanyRequests from "./CompanyRequests";
 
-// function renderEntry(detail){
-//     return(
-//         <CompanyDetailsProfileProps 
-//             key={detail.id}
-//             companyName={detail.companyName}
-//             qualificationRequired={detail.qualificationRequired}
-//             contactNumber={detail.contactNumber}
-//             positionName={detail.positionName}
-//             skillsRequired={detail.skillsRequired}
-//             jd={detail.jd}
-//             emailid={detail.emailid}
-//             location={detail.location}
-//             Domain={detail.dom}
-//         />
-//     ) 
-// }
 
 function CompanyProfilePage() {
 
@@ -46,6 +32,12 @@ function CompanyProfilePage() {
     function navigateToCompanyNewInternship(){
         navigate('/companynewinternship')
     }
+    function navigateToCompanyInvites(){
+        navigate('/companyinvites')
+    }
+    function navigateToCompanyResponse(){
+        navigate('/companyrequests')
+    }
 
   return (
     <div>
@@ -57,8 +49,8 @@ function CompanyProfilePage() {
         </div>
         <div class="CDP">
             <div class="ProfileButtons">
-                <button type="button" class="btn btn-primary" id="InviteButton" data-toggle="modal" data-target="#exampleModalLong"> My Invites</button>
-                <button type="button" class="btn btn-primary" id="RequestButton">My Requests</button>
+                <button type="button" class="btn btn-primary" id="InviteButton" onClick={navigateToCompanyInvites}> My Invites</button>
+                <button type="button" class="btn btn-primary" id="RequestButton" onClick={navigateToCompanyResponse}>My Requests</button>
             </div>
             
             <div class="profileText">
@@ -89,6 +81,8 @@ function CompanyProfilePage() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
             <Routes>
                 <Route path="/companynewinternship" element={<CompanyNewInternship />} />
+                <Route path="/candidateinvites" element={<CompanyInvites />} />
+                <Route path="/candidaterequests" element={<CompanyRequests />} />
             </Routes>
     </div>
   );

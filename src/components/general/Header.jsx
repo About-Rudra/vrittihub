@@ -10,7 +10,7 @@ function Header() {
   const navigate = useNavigate();
 
   function navigateToHome(){
-    navigate('/home')
+    navigate('/')
 }
 function navigateToAboutUs(){
   navigate('/aboutus')

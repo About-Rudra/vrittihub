@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from "../general/Header";
 import CandidateDetailsProps from "./CandidateDetailsProps";
 import CandidateDetailsEntry from "../candidate/CandidateDetailsEntry";
-import InviteModal from "../general/InviteModal";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateNewInternship from "./CandidateNewInternship";
 import Cookies from 'js-cookie';
+import CandidateInvites from './CandidateInvites';
+import CandidatesRequests from './CandidatesRequests';
 
 // function renderEntry(detail){
 //     return(
@@ -52,6 +53,12 @@ function CandidateProfilePage() {
     function navigateToCandidateNewInternship(){
         navigate('/candidatenewinternship')
     }
+    function navigateToCandidateInvites(){
+        navigate('/candidateinvites')
+    }
+    function navigateToCandidateResponse(){
+        navigate('/candidaterequests')
+    }
 
   return (
     <div>
@@ -63,9 +70,9 @@ function CandidateProfilePage() {
         </div>
         <div className="CDP">
             <div className="ProfileButtons">
-                <button type="button" className="btn btn-primary" id="InviteButton" data-toggle="modal" data-target="#exampleModalLong" >Invite</button>
-                <button type="button" className="btn btn-primary" id="RequestButton">Request</button>
-                <InviteModal />
+                <button type="button" className="btn btn-primary" id="InviteButton" onClick={navigateToCandidateInvites}>Invite</button>
+                <button type="button" className="btn btn-primary" id="RequestButton" onClick={navigateToCandidateResponse}>Request</button>
+                
             </div>
             
 
@@ -98,6 +105,8 @@ function CandidateProfilePage() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
             <Routes>
                 <Route path="/candidatenewinternship" element={<CandidateNewInternship />} />
+                <Route path="/candidateinvites" element={<CandidateInvites />} />
+                <Route path="/candidaterequests" element={<CandidatesRequests />} />
             </Routes>
     </div>
   );

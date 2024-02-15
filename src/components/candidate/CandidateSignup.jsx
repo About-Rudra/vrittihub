@@ -16,6 +16,11 @@ function CandidateSignup() {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     console.log('Submit event fired: ', JSON.stringify(formData));
+    if (Object.values(formData).some(value => value.trim() === '')) {
+      // At least one field is empty, display error message or prevent navigation
+      alert('Please fill out all fields');
+      return; // Exit early, don't proceed to next page
+    };
 
     // Process the form data (e.g., send it to the server)
     fetch("http://localhost:5000/register", {
@@ -39,12 +44,16 @@ function CandidateSignup() {
           if(response.status === 400) {
             //Bad request - User already exists
             //Show to UI
+            alert('User already present')
             console.log("Received bad request from backend");
+            
+            
           } else {
             //Show message to UI to try again
             console.log("Backend error: " + response.status);
           }
         }
+        
         // Reset form fields
         setFormData({ email: '', password: '' });
         navigateToCandidateDetailsForm();
@@ -61,17 +70,20 @@ function CandidateSignup() {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-  };
+    
+}
 
   const navigate = useNavigate();
+  
   function navigateToCandidateDetailsForm() {
-    navigate('/candidatedetails')
+      navigate('/candidatedetails')
   }
 
-
-  if (formData === '') {
-    navigate('/candidatesignup')
-  }
+  // function userAlreadyExists(){
+  //   if(response.status === 400)
+  //   alert('User already present')
+  //   navigate('/candidatesignup')
+  // }
 
   return (
     <div id="signupCoContainer">

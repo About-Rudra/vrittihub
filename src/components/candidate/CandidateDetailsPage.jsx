@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../general/Header";
-import { useSearchParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import CandidateDetailsProps from "./CandidateDetailsProps";
-import CandidateDetailsEntry from "../candidate/CandidateDetailsEntry";
+
 
 
 // function renderEntry(detail) {
