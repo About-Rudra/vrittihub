@@ -8,24 +8,6 @@ import Cookies from 'js-cookie';
 import CandidateInvites from './CandidateInvites';
 import CandidatesRequests from './CandidatesRequests';
 
-// function renderEntry(detail){
-//     return(
-//         <CandidateDetailsProps 
-//             key={detail.id}
-//             candidateName={detail.candidateName}
-//             qualification={detail.qualification}
-//             contactNumber={detail.contactNumber}
-//             collegeName={detail.collegeName}
-//             skillsAcheivements={detail.skillsAcheivements}
-//             bio={detail.bio}
-//             emailid={detail.emailid}
-//             location={detail.location}
-//             interests={detail.interests}
-//         />
-//     );
-// }
-
-
 function CandidateProfilePage() {
 
     const email = Cookies.get('email');

@@ -2,9 +2,10 @@ import React from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import CompanyProfilePage from "./CompanyProfilePage";
+import Modal from "../general/Modal";
 
 function CompanyDetailsForm() {
-
+  const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     companyname: '',
     qualification: '',
@@ -16,6 +17,13 @@ function CompanyDetailsForm() {
     location: '',
     interesteddomain: '',
   });
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,7 +40,9 @@ function CompanyDetailsForm() {
       // At least one field is empty, display error message or prevent navigation
       alert('Please fill out all fields');
       return; // Exit early, don't proceed to next page
-    };
+    } else {
+      handleOpen();
+    }
 
     fetch('http://localhost:5000/companydetails', {
       method: 'POST',
@@ -53,7 +63,10 @@ function CompanyDetailsForm() {
       console.log('Form submitted:', formData);
     // Reset form fields
     setFormData({ companyname: '', qualification: '', contactnumber: '', position: '', skills: '', jd: '', email: '', location: '', interesteddomain: ''});
-    navigateToCompanyProfilePage();
+    setTimeout(() => {
+      navigateToCompanyProfilePage();
+    }, 2000);
+    
   };
 
   const navigate = useNavigate();
@@ -88,6 +101,11 @@ function CompanyDetailsForm() {
             <label class="form-label" id="photolabel" for="customFile">Upload Photo</label>
             <input type="file" class="form-label" id="customFile" />
             <button type="submit" class="signupco1" >Submit</button>
+            <Modal isOpen={open} onClose={handleClose}>
+              <>
+                <h1 style={{ marginTop: '5rem' }}>Thank you for the details!!</h1>
+              </>
+            </Modal>
         </form>
         </div>
          

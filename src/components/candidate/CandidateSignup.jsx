@@ -1,77 +1,73 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, Navigate, redirect } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateDetailsForm from "./CandidateDetailsForm";
 import Cookies from 'js-cookie';
+import Modal from "../general/Modal";
 
 function CandidateSignup() {
-
+  const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-
   });
 
-  // Function to handle form submission
+  const handleClose = () => {
+    setOpen(false);
+};
+
+const handleOpen = () => {
+    setOpen(true);
+};
+
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
     console.log('Submit event fired: ', JSON.stringify(formData));
     if (Object.values(formData).some(value => value.trim() === '')) {
-      // At least one field is empty, display error message or prevent navigation
       alert('Please fill out all fields');
-      return; // Exit early, don't proceed to next page
-    };
+      return;
+    }else{
+      handleOpen();
+    }
 
-    // Process the form data (e.g., send it to the server)
     fetch("http://localhost:5000/register", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
-      
     })
-    
       .then((response) => {
         console.log('Received response:', response);
         console.log("Email used for registration: " + formData.email);
         
         if(response.ok) {
-          // Set the email id in a cookie
           console.log("All Ok");
           Cookies.set('email', formData.email);
+          
+          setTimeout(() => {
+            navigateToCandidateDetailsForm();
+          }, 2000);
         } else {
           if(response.status === 400) {
-            //Bad request - User already exists
-            //Show to UI
-            alert('User already present')
+            alert('User already present');
             console.log("Received bad request from backend");
-            
-            
           } else {
-            //Show message to UI to try again
             console.log("Backend error: " + response.status);
           }
         }
         
-        // Reset form fields
         setFormData({ email: '', password: '' });
-        navigateToCandidateDetailsForm();
       })
       .catch((error) => {
         console.error('Error posting data:', error);
-        // Optionally, handle error
       });
-
-    console.log('Form submitted:', formData);
   };
 
-  // Function to handle input changes and update state
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    
-}
+  }
 
   const navigate = useNavigate();
   
@@ -79,25 +75,15 @@ function CandidateSignup() {
       navigate('/candidatedetails')
   }
 
-  // function userAlreadyExists(){
-  //   if(response.status === 400)
-  //   alert('User already present')
-  //   navigate('/candidatesignup')
-  // }
 
   return (
     <div id="signupCoContainer">
       <div id="right">
-
-        <h1>New Here?
-          <br />Sign up:) </h1>
+        <h1>New Here?<br />Sign up:) </h1>
       </div>
-
       <div id="signupCoForm">
         <div className="rectangle1"></div>
         <div className="rectangle2"></div>
-
-
         <div class="signupCogroup">
           <h2 id="head1">Candidate Sign Up</h2>
           <form onSubmit={handleSubmit}>
@@ -105,15 +91,18 @@ function CandidateSignup() {
             <input type="email" className="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
             <label></label>
             <input type="password" className="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-
-            <button type="submit" className="signupco">Submit</button>
+            <button type="submit" className="signupco" >Submit</button>
+            <Modal isOpen={open} onClose={handleClose}>
+                <>
+                    <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
+                </>
+            </Modal>
             <button type="button" className="google-sign-in-button" >
               Sign in with Google
             </button>
           </form>
+         
         </div>
-
-
       </div>
       <Routes>
         <Route path="/candidatedetails" element={<CandidateDetailsForm />} />

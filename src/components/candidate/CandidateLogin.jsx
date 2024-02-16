@@ -3,14 +3,22 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateProfilePage from "./CandidateProfilePage";
 import Cookies from 'js-cookie';
+import Modal from "../general/Modal";
 
 function CandidateLogin() {
-
+  const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
 
   });
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   // Function to handle form submission
   const handleSubmit = (event) => {
@@ -20,7 +28,9 @@ function CandidateLogin() {
       // At least one field is empty, display error message or prevent navigation
       alert('Please fill out all fields');
       return; // Exit early, don't proceed to next page
-    };
+    }else {
+      handleOpen();
+    }
 
     // Process the form data (e.g., send it to the server)
     fetch('http://localhost:5000/login', {
@@ -35,7 +45,9 @@ function CandidateLogin() {
         if(response.ok) {
           // Set the email id in a cookie
           Cookies.set('email', formData.email);
-          navigateToCandidateProfilePage();
+          setTimeout(() => {
+            navigateToCandidateProfilePage();
+          }, 2000);
         } else {
           console.log("Error received from backend: " + response.status);
         }
@@ -87,6 +99,11 @@ function CandidateLogin() {
             <input type="email" class="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
             <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
             <button type="submit" class="signupco" >Submit</button>
+            <Modal isOpen={open} onClose={handleClose}>
+              <>
+                <h1 style={{ marginTop: '5rem' }}>Successfully Logged in!!</h1>
+              </>
+            </Modal>
           </form>
         </div>
 

@@ -3,115 +3,134 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CompanyDetailsForm from "./CompanyDetailsForm";
 import Cookies from 'js-cookie';
+import Modal from "../general/Modal";
 
 function CompanySignup() {
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
 
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        
-      });
-    
-      // Function to handle form submission
-      const handleSubmit = (event) => {
-        event.preventDefault(); // Prevent default form submission behavior
-        console.log('Submit event fired: ', JSON.stringify(formData));
-        if (Object.values(formData).some(value => value.trim() === '')) {
-          // At least one field is empty, display error message or prevent navigation
-          alert('Please fill out all fields');
-          return; // Exit early, don't proceed to next page
-        };
-    
-        // Process the form data (e.g., send it to the server)
-        fetch('http://localhost:5000/register2', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        })
-          .then((response) => {
-            console.log('Received response:', response);
-            console.log("Email used for registration: " + formData.email);
-            
-            if(response.ok) {
-              // Set the email id in a cookie
-              console.log("All Ok");
-              Cookies.set('email', formData.email);
-            } else {
-              if(response.status === 400) {
-                //Bad request - User already exists
-                //Show to UI
-                console.log("Received bad request from backend");
-              } else {
-                //Show message to UI to try again
-                console.log("Backend error: " + response.status);
-              }
-            }
-            // Reset form fields
-        setFormData({  email: '', password: ''});
-        navigateToCompanyDetailsForm()
-          })
-          .catch((error) => {
-            console.error('Error posting data:', error);
-            // Optionally, handle error
-          });
-    
-        console.log('Form submitted:', formData);
-        
-      };
-    
-      // Function to handle input changes and update state
-      const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-      };
+  });
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-    const navigate = useNavigate();
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-    function navigateToCompanyDetailsForm(){
-        navigate('/companydetails')
+  // Function to handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+    console.log('Submit event fired: ', JSON.stringify(formData));
+    if (Object.values(formData).some(value => value.trim() === '')) {
+      // At least one field is empty, display error message or prevent navigation
+      alert('Please fill out all fields');
+      return; // Exit early, don't proceed to next page
+    } else {
+      handleOpen();
     }
 
-    return (
+    // Process the form data (e.g., send it to the server)
+    fetch('http://localhost:5000/register2', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        console.log('Received response:', response);
+        console.log("Email used for registration: " + formData.email);
 
-        <div id="signupCoContainer" >
-            <div id="right">
+        if (response.ok) {
+          // Set the email id in a cookie
+          console.log("All Ok");
+          Cookies.set('email', formData.email);
 
-                <h1>New Here?
-                    <br />Sign up:) </h1>
-            </div>
+          setTimeout(() => {
+            navigateToCompanyDetailsForm();
+          }, 2000);
+        } else {
+          if (response.status === 400) {
+            //Bad request - User already exists
+            //Show to UI
+            console.log("Received bad request from backend");
+          } else {
+            //Show message to UI to try again
+            console.log("Backend error: " + response.status);
+          }
+        }
+        // Reset form fields
+        setFormData({ email: '', password: '' });
 
-            <div id="signupCoForm">
-                
-                    <div class="rectangle1"></div>
-                    <div class="rectangle2"></div>
+      })
+      .catch((error) => {
+        console.error('Error posting data:', error);
+        // Optionally, handle error
+      });
+
+    console.log('Form submitted:', formData);
+
+  };
+
+  // Function to handle input changes and update state
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const navigate = useNavigate();
+
+  function navigateToCompanyDetailsForm() {
+    navigate('/companydetails')
+  }
+
+  return (
+
+    <div id="signupCoContainer" >
+      <div id="right">
+
+        <h1>New Here?
+          <br />Sign up:) </h1>
+      </div>
+
+      <div id="signupCoForm">
+
+        <div class="rectangle1"></div>
+        <div class="rectangle2"></div>
 
 
-                    <div class="signupCogroup">
-                        <h2 id="head1">Company Sign Up</h2>
-                        <form onSubmit={handleSubmit}>
-                        <label for="coemail"></label>
-                        <input type="email" class="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
-                        <label for="copass"></label>
-                        <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
+        <div class="signupCogroup">
+          <h2 id="head1">Company Sign Up</h2>
+          <form onSubmit={handleSubmit}>
+            <label for="coemail"></label>
+            <input type="email" class="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
+            <label for="copass"></label>
+            <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
 
-                                <button type="submit" class="signupco" >Submit</button>
-                                <button type="button" class="google-sign-in-button" >
-                                    Sign in with Google
-                                </button>
-                                </form>
-                    </div>
+            <button type="submit" class="signupco" >Submit</button>
+            <Modal isOpen={open} onClose={handleClose}>
+              <>
+                <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
+              </>
+            </Modal>
+            <button type="button" class="google-sign-in-button" >
+              Sign in with Google
+            </button>
+          </form>
+        </div>
 
 
-                        
-                    </div>
-                    <Routes>
-                         <Route path="/companydetails" element={<CompanyDetailsForm />} />
-                    </Routes>
-            </div>
-            
-            );
+
+      </div>
+      <Routes>
+        <Route path="/companydetails" element={<CompanyDetailsForm />} />
+      </Routes>
+    </div>
+
+  );
 }
 
-            export default CompanySignup;
+export default CompanySignup;
