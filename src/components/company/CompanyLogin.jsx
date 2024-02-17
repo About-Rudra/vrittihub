@@ -31,6 +31,7 @@ function CompanyLogin() {
       return; // Exit early, don't proceed to next page
     } else {
       handleOpen();
+      
     }
 
 
@@ -65,6 +66,7 @@ function CompanyLogin() {
       });
 
     console.log('Form submitted:', formData);
+    
 
   };
 

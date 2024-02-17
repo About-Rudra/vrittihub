@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../general/Header";
 import Cookies from 'js-cookie';
+import { useLocation } from 'react-router-dom';
+
 
 
 
@@ -23,25 +25,30 @@ import Cookies from 'js-cookie';
 
 function CandidateDetailsPage() {
 
+    const location = useLocation();
+    console.log("this is state" + location.state); // Check if student object is received
+
+    const { student } = location.state;
+    console.log("this is student" + student); // Check the contents of the student object
 
 
     // const email = Cookies.get('email');
-    const email = Cookies.get('email');
-    console.log("Retrieved email as: " + email);
+    // const email = Cookies.get('email');
+    // console.log("Retrieved email as: " + email);
 
-    const [studentDetails, setStudentDetails] = useState([]);
+    // const [studentDetails, setStudentDetails] = useState([]);
 
-    useEffect(() => {
-        // Fetch student details from the API
-        fetch(`http://localhost:5000/studentdetails/${email}`)
-            .then(response => response.json())
-            .then(data => {
-                // Assign the fetched data to the studentDetails variable
-                setStudentDetails(data);
-                console.log(studentDetails)
-            })
-            .catch(error => console.error('Error fetching student details:', error));
-    }, []); // Empty dependency array to fetch data only once when the component mounts
+    // useEffect(() => {
+    //     // Fetch student details from the API
+    //     fetch(`http://localhost:5000/studentdetails/${email}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             // Assign the fetched data to the studentDetails variable
+    //             setStudentDetails(data);
+    //             console.log(studentDetails)
+    //         })
+    //         .catch(error => console.error('Error fetching student details:', error));
+    // }, []); // Empty dependency array to fetch data only once when the component mounts
 
 
 
@@ -60,21 +67,21 @@ function CandidateDetailsPage() {
                     <div className="profileText">
 
                         {/* {CandidateDetailsEntry.map(renderEntry)} */}
-                        {studentDetails ? (
+                        {/* {studentDetails ? ( */}
                             <div>
-                                <h1>I'm {studentDetails.name}!</h1>
-                                <p>{studentDetails.achievements}</p>
-                                <p>Qualification: {studentDetails.qualification}</p>
-                                <p>Contact Number: {studentDetails.contact_no}</p>
-                                <p>College Name: {studentDetails.college_name}</p>
-                                <p>Skills/Acheivements: {studentDetails.skills}</p>
-                                <p>Email id: {studentDetails.email}</p>
-                                <p>location: {studentDetails.locations}</p>
-                                <p>Interests: {studentDetails.interested_internship}</p>
+                            <h1>I'm {student.student_name}!</h1>
+                        <p>Bio: {student.bio}</p>
+                        <p>Qualification: {student.qualification}</p>
+                        <p>Contact Number: {student.contact_no}</p>
+                        <p>College Name: {student.college_name}</p>
+                        <p>Skills/Achievements: {student.skills_achievements}</p>
+                        <p>Email id: {student.email}</p>
+                        <p>Location: {student.locations}</p>
+                        <p>Interests: {student.where_internship}</p>
                             </div>
-                        ) : (
-                            <p>No student details available</p>
-                        )}
+                        {/* ) : ( */}
+                           
+                        
 
                     </div>
 

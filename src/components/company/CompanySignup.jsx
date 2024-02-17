@@ -10,8 +10,12 @@ function CompanySignup() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-
   });
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -25,10 +29,18 @@ function CompanySignup() {
     event.preventDefault(); // Prevent default form submission behavior
     console.log('Submit event fired: ', JSON.stringify(formData));
     if (Object.values(formData).some(value => value.trim() === '')) {
-      // At least one field is empty, display error message or prevent navigation
-      alert('Please fill out all fields');
+      // At least one field is empty
+      setErrors(prevState => ({
+        ...prevState,
+        email: formData.email.trim() === '' ? 'Email is required' : '',
+        password: formData.password.trim() === '' ? 'Password is required' : '',
+      }));
       return; // Exit early, don't proceed to next page
     } else {
+      setErrors({
+        email: '',
+        password: '',
+      });
       handleOpen();
     }
 
@@ -72,7 +84,6 @@ function CompanySignup() {
       });
 
     console.log('Form submitted:', formData);
-
   };
 
   // Function to handle input changes and update state
@@ -84,32 +95,46 @@ function CompanySignup() {
   const navigate = useNavigate();
 
   function navigateToCompanyDetailsForm() {
-    navigate('/companydetails')
+    navigate('/companydetails');
   }
 
   return (
-
     <div id="signupCoContainer" >
       <div id="right">
-
-        <h1>New Here?
-          <br />Sign up:) </h1>
+        <h1>New Here? <br />Sign up:) </h1>
       </div>
 
       <div id="signupCoForm">
-
         <div class="rectangle1"></div>
         <div class="rectangle2"></div>
-
 
         <div class="signupCogroup">
           <h2 id="head1">Company Sign Up</h2>
           <form onSubmit={handleSubmit}>
             <label for="coemail"></label>
-            <input type="email" class="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
+            <input
+              type="email"
+              class="cogform"
+              aria-describedby="cemail"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Email"
+              style={{ borderColor: errors.email ? 'red' : '' }}
+            />
+            {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
             <label for="copass"></label>
-            <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-
+            <input
+              type="password"
+              class="cogform"
+              aria-describedby="cpass"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              placeholder="Password"
+              style={{ borderColor: errors.password ? 'red' : '' }}
+            />
+            {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
             <button type="submit" class="signupco" >Submit</button>
             <Modal isOpen={open} onClose={handleClose}>
               <>
@@ -121,15 +146,11 @@ function CompanySignup() {
             </button>
           </form>
         </div>
-
-
-
       </div>
       <Routes>
         <Route path="/companydetails" element={<CompanyDetailsForm />} />
       </Routes>
     </div>
-
   );
 }
 

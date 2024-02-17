@@ -337,11 +337,13 @@ margin-left: 53rem;
 }
 #ExploreContainer {
     display: flex;
-    align-items: flex-start;
+    align-items: centre;
     color: aliceblue;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 2rem;
     margin-top: 2rem;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 #Exploreh1 {
     color: aliceblue;
@@ -350,15 +352,26 @@ margin-left: 53rem;
 }
 #ExploreImage{
     width: 15%;
+    flex: 0 0 auto;
+    margin-right: 20px;
     
 }
+.studentDetailsContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
 #ExploreContent{
     margin-left: 2rem;
     flex-shrink: 5;
+    width: 100%;
+    max-width: 400px; /* Adjust the max-width as needed */
+    margin-bottom: 20px;
+    flex: 1;
     
 }
 #DetailsButton{
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 5cm;
 }
 

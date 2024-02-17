@@ -56,15 +56,15 @@ function CompanyProfilePage() {
             <div class="profileText">
             {companyDetails ? (
                             <div>
-                                <h1>We Are' {companyDetails.company_name}!</h1>
-                                <p>JD: {companyDetails.job_description}</p>
-                                <p>Qualification Required: {companyDetails.qualification_required}</p>
-                                <p>Contact Number: {companyDetails.contact_no}</p>
-                                <p>Position Name: {companyDetails.position_name}</p>
-                                <p>Skills Required: {companyDetails.skills_required}</p>
-                                <p>Email id: {companyDetails.email}</p>
-                                <p>location: {companyDetails.locations}</p>
-                                <p>Work Domain: {companyDetails.interested_domain}</p>
+                                <h1><strong style={{fontSize:"3rem"}}>We Are'</strong> {companyDetails.company_name}!</h1>
+                                <p><strong style={{fontSize:"1.5rem"}}>JD: </strong>{companyDetails.job_description}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>Qualification Required: </strong>{companyDetails.qualification_required}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>Contact Number: </strong>{companyDetails.contact_no}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>Position Name: </strong>{companyDetails.position_name}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>Skills Required: </strong>{companyDetails.skills_required}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>Email id: </strong>{companyDetails.email}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>location: </strong>{companyDetails.locations}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>Work Domain: </strong>{companyDetails.interested_domain}</p>
                             </div>
                         ) : (
                             <p>No student details available</p>

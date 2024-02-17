@@ -30,6 +30,7 @@ function CandidateLogin() {
       return; // Exit early, don't proceed to next page
     }else {
       handleOpen();
+      
     }
 
     // Process the form data (e.g., send it to the server)
@@ -46,8 +47,8 @@ function CandidateLogin() {
           // Set the email id in a cookie
           Cookies.set('email', formData.email);
           setTimeout(() => {
-            navigateToCandidateProfilePage();
-          }, 2000);
+          navigateToCandidateProfilePage();
+          }, 4000);
         } else {
           console.log("Error received from backend: " + response.status);
         }

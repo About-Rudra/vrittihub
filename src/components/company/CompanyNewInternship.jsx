@@ -103,7 +103,7 @@ function CompanyNewInternship() {
                 <button type="submit" class="signupco1">Post</button>
                 <Modal isOpen={open} onClose={handleClose}>
               <>
-                <h1 style={{ marginTop: '5rem' }}>New internship Posted Sucessfully!!</h1>
+                <h1 style={{ marginTop: '1rem' }}>New internship Posted Sucessfully!!</h1>
               </>
             </Modal>
                 </form>
