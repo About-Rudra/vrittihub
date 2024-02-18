@@ -23,6 +23,7 @@ const handleOpen = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Submit event fired: ', JSON.stringify(formData));
+    console.log(formData);
     if (Object.values(formData).some(value => value.trim() === '')) {
       alert('Please fill out all fields');
       return;
@@ -44,6 +45,7 @@ const handleOpen = () => {
         if(response.ok) {
           console.log("All Ok");
           Cookies.set('email', formData.email);
+          Cookies.set('role', "candidate");
           
           setTimeout(() => {
             navigateToCandidateDetailsForm();
@@ -91,12 +93,12 @@ const handleOpen = () => {
             <input type="email" className="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
             <label></label>
             <input type="password" className="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-            <button type="submit" className="signupco" >Submit</button>
-            <Modal isOpen={open} onClose={handleClose}>
+            <button type="submit" className="signupco" >Next</button>
+            {/* <Modal isOpen={open} onClose={handleClose}>
                 <>
                     <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
                 </>
-            </Modal>
+            </Modal> */}
             <button type="button" className="google-sign-in-button" >
               Sign in with Google
             </button>

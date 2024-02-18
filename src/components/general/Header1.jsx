@@ -5,6 +5,10 @@ import { X } from "@mui/icons-material";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Home from "./Home";
 import AboutUs from "./AboutUs";
+import Cookies from "js-cookie";
+import CompanyProfilePage from "../company/CompanyProfilePage";
+import CandidateProfilePage from "../candidate/CandidateProfilePage";
+ 
 
 
 function Header1() {
@@ -16,6 +20,17 @@ function Header1() {
 function navigateToAboutUs(){
   navigate('/aboutus')
 }
+function navigateToProfilePage(){
+  const role = Cookies.get('role')
+  console.log(role)
+  if(role === 'company'){
+    navigate('/CompanyProfilePage')
+  }else{
+    navigate('/CandidateProfilePage')
+  }
+}
+
+
 
   return (
     <header>
@@ -25,7 +40,7 @@ function navigateToAboutUs(){
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <a class="navbar-brand1" href="#" style={{textDecoration: "none"}} onClick={navigateToHome}>Home </a>
                 <a class="navbar-brand1" href="#" style={{textDecoration: "none"}} onClick={navigateToAboutUs}>About</a>
-                <a class="navbar-brand1" href="#" style={{textDecoration: "none"}}>Profile</a>
+                <a class="navbar-brand1" href="#" style={{textDecoration: "none"}} onClick={navigateToProfilePage}>Profile</a>
             </div>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <InstagramIcon />
@@ -38,6 +53,8 @@ function navigateToAboutUs(){
             <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/CompanyProfilePage" element={<CompanyProfilePage />} />
+                <Route path="/CandidateProfilePage" element={<CandidateProfilePage />} />
             </Routes>
     </header>
   );

@@ -16,14 +16,13 @@ import CandidateDetailsPage from "./candidate/CandidateDetailsPage";
 import CompanyProfilePage from "./company/CompanyProfilePage";
 import CandidateProfilePage from "./candidate/CandidateProfilePage";
 import CompanyNewInternship from "./company/CompanyNewInternship";
-import CandidateNewInternship from "./candidate/CandidateNewInternship";
+import CandidateApplyForInternship from "./candidate/CandidateApplyForInternship";
+import CandidateListOfApplications from "./candidate/CandidateListOfApplications";
 import AreUALogin from "./general/AreUALogin";
 import CompanyExplorePage from "./company/CompanyExplorePage";
 import CandidateExplorePage from "./candidate/CandidateExplorePage";
-import CompanyInvites from "./company/CompanyInvites";
-import CompanyRequests from "./company/CompanyRequests";
-import CandidatesInvites from "./candidate/CandidateInvites";
-import CandidatesRequests from "./candidate/CandidatesRequests";
+import CompanyMyPostings from "./company/CompanyMyPostings";
+import CompanyInternshipWhoApplied from "./company/CompanyInternshipWhoApplied";
 
 
 // import { BrowserRouter as Router } from 'react-router-dom';
@@ -51,15 +50,15 @@ function App() {
         <Route path="/CandidateDetailsView" element={<CandidateDetailsPage />} />
         <Route path="/CompanyProfilePage" element={<CompanyProfilePage />} />
         <Route path="/CandidateProfilePage" element={<CandidateProfilePage />} />
-        <Route path="/CandidateNewInternship" element={<CandidateNewInternship />} />
+        <Route path="/CandidateApplyForInternship" element={<CandidateApplyForInternship />} />
         <Route path="/CompanyNewInternship" element={<CompanyNewInternship/>} />
+        <Route path="/CandidateListOfApplications" element={<CandidateListOfApplications/>} />
+        <Route path="/companymypostings" element={<CompanyMyPostings/>} />
+        <Route path="/CompanyInternshipWhoApplied" element={<CompanyInternshipWhoApplied/>} />
         <Route path="/areualogin" element={<AreUALogin/>} />
         <Route path="/explorecompany" element={<CompanyExplorePage/>} />
         <Route path="/explorecandidate" element={<CandidateExplorePage/>} />
-        <Route path="/companyinvites" element={<CompanyInvites/>} />
-        <Route path="/companyrequests" element={<CompanyRequests/>} />
-        <Route path="/candidateinvites" element={<CandidatesInvites/>} />
-        <Route path="/candidaterequests" element={<CandidatesRequests/>} />
+
       </Routes>
     
     

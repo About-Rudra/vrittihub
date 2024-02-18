@@ -1,44 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../general/Header";
-import CompanyDetailsProfileProps from "./CompanyDetailsProps";
+import CompanyDetailsProfileProps from "./CompanyMyPostings";
 import Cookies from 'js-cookie';
+import { useLocation } from 'react-router-dom';
 //import CompanyDetailsEntry from "../company/CompanyDetailsEntry";
 
-// function renderEntry(detail){
-//     return(
-//         <CompanyDetailsProfileProps 
-//             key={detail.id}
-//             companyName={detail.companyName}
-//             qualificationRequired={detail.qualificationRequired}
-//             contactNumber={detail.contactNumber}
-//             positionName={detail.positionName}
-//             skillsRequired={detail.skillsRequired}
-//             jd={detail.jd}
-//             emailid={detail.emailid}
-//             location={detail.location}
-//             Domain={detail.dom}
-//         />
-//     ) 
-// }
 
 function CompanyDetailsPage() {
 
-    const email = Cookies.get('email');
-    console.log("Retrieved email as: " + email);
+    // const email = Cookies.get('email');
+    // console.log("Retrieved email as: " + email);
+    const location = useLocation();
+    
 
-    const [companyDetails, setCompanyDetails] = useState([]);
+    const { company } = location.state;
+    console.log("this is student" + company); // Check the contents of the student object
 
-    useEffect(() => {
-        // Fetch student details from the API
-        fetch(`http://localhost:5000/companydetails/${email}`)
-            .then(response => response.json())
-            .then(data => {
-                // Assign the fetched data to the studentDetails variable
-                setCompanyDetails(data);
-                console.log(companyDetails)
-            })
-            .catch(error => console.error('Error fetching student details:', error));
-    }, []); // Empty dependency array to fetch data only once when the component mounts
+    // const [companyDetails, setCompanyDetails] = useState([]);
+
+    // useEffect(() => {
+    //     // Fetch student details from the API
+    //     fetch(`http://localhost:5000/companydetails/${email}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             // Assign the fetched data to the studentDetails variable
+    //             setCompanyDetails(data);
+    //             console.log(companyDetails)
+    //         })
+    //         .catch(error => console.error('Error fetching student details:', error));
+    // }, []); // Empty dependency array to fetch data only once when the component mounts
 
     return (
         <div>
@@ -50,21 +40,21 @@ function CompanyDetailsPage() {
                 </div>
                 <div class="CDP">
                     <div class="profileText">
-                        {companyDetails ? (
+                        {/* {companyDetails ? ( */}
                             <div>
-                                <h1>We Are' {companyDetails.company_name}!</h1>
-                                <p>JD: {companyDetails.job_description}</p>
-                                <p>Qualification Required: {companyDetails.qualification_required}</p>
-                                <p>Contact Number: {companyDetails.contact_no}</p>
-                                <p>Position Name: {companyDetails.position_name}</p>
-                                <p>Skills Required: {companyDetails.skills_required}</p>
-                                <p>Email id: {companyDetails.email}</p>
-                                <p>location: {companyDetails.locations}</p>
-                                <p>Work Domain: {companyDetails.interested_domain}</p>
+                                <h1>We Are' {company.company_name}!</h1>
+                                <p>JD: {company.job_description}</p>
+                                <p>Qualification Required: {company.qualification_required}</p>
+                                <p>Contact Number: {company.contact_no}</p>
+                                <p>Position Name: {company.position_name}</p>
+                                <p>Skills Required: {company.skills_required}</p>
+                                <p>Email id: {company.email}</p>
+                                <p>location: {company.locations}</p>
+                                <p>Work Domain: {company.interested_domain}</p>
                             </div>
-                        ) : (
-                            <p>No student details available</p>
-                        )}
+                        {/* ) : ( */}
+                            {/* <p>No student details available</p> */}
+                        
                     </div>
 
                     <button type="submit" class="btn btn-primary" id="submitButton" >Send Invite</button>

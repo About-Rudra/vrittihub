@@ -48,6 +48,7 @@ function CompanyLogin() {
         if (response.ok) {
           // Set the email id in a cookie
           Cookies.set('email', formData.email);
+          Cookies.set('role', "company");
           setTimeout(() => {
             navigateToCompanyProfilePage();
           }, 2000);
@@ -105,7 +106,7 @@ function CompanyLogin() {
             <input type="email" class="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
             <label for="copass"></label>
             <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-            <button type="submit" class="signupco">Submit</button>
+            <button type="submit" class="signupco">Log in</button>
             <Modal isOpen={open} onClose={handleClose}>
               <>
                 <h1 style={{ marginTop: '5rem' }}>Successfully Logged in!!</h1>

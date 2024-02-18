@@ -46,9 +46,10 @@ function CandidateLogin() {
         if(response.ok) {
           // Set the email id in a cookie
           Cookies.set('email', formData.email);
+          Cookies.set('role', "candidate");
           setTimeout(() => {
           navigateToCandidateProfilePage();
-          }, 4000);
+          }, 2000);
         } else {
           console.log("Error received from backend: " + response.status);
         }
@@ -99,7 +100,7 @@ function CandidateLogin() {
           <form onSubmit={handleSubmit}>
             <input type="email" class="cogform" aria-describedby="cemail" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
             <input type="password" class="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-            <button type="submit" class="signupco" >Submit</button>
+            <button type="submit" class="signupco" >Log in</button>
             <Modal isOpen={open} onClose={handleClose}>
               <>
                 <h1 style={{ marginTop: '5rem' }}>Successfully Logged in!!</h1>

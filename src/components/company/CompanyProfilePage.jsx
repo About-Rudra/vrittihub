@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "../general/Header";
-import CompanyDetailsProfileProps from "./CompanyDetailsProps";
-import CompanyDetailsEntry from "../company/CompanyDetailsEntry";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CompanyNewInternship from "./CompanyNewInternship";
 import Cookies from 'js-cookie';
-import CompanyInvites from "./CompanyInvites";
-import CompanyRequests from "./CompanyRequests";
+import CompanyMyPostings from "./CompanyMyPostings";
 
 
 function CompanyProfilePage() {
@@ -17,11 +14,11 @@ function CompanyProfilePage() {
     const [companyDetails, setCompanyDetails] = useState([]);
 
     useEffect(() => {
-        // Fetch student details from the API
+        // Fetch company details from the API
         fetch(`http://localhost:5000/companydetails/${email}`)
             .then(response => response.json())
             .then(data => {
-                // Assign the fetched data to the studentDetails variable
+                // Assign the fetched data to the companyDetails variable
                 setCompanyDetails(data);
                 console.log(companyDetails)
             })
@@ -32,11 +29,8 @@ function CompanyProfilePage() {
     function navigateToCompanyNewInternship(){
         navigate('/companynewinternship')
     }
-    function navigateToCompanyInvites(){
-        navigate('/companyinvites')
-    }
-    function navigateToCompanyResponse(){
-        navigate('/companyrequests')
+    function navigateToMyPostings(){
+        navigate('/companymypostings')
     }
 
   return (
@@ -49,8 +43,8 @@ function CompanyProfilePage() {
         </div>
         <div class="CDP">
             <div class="ProfileButtons">
-                <button type="button" class="btn btn-primary" id="InviteButton" onClick={navigateToCompanyInvites}> My Invites</button>
-                <button type="button" class="btn btn-primary" id="RequestButton" onClick={navigateToCompanyResponse}>My Requests</button>
+                <button type="button" class="btn btn-primary" id="InviteButton" onClick={navigateToMyPostings}>My Postings</button>
+                {/* <button type="button" class="btn btn-primary" id="RequestButton" onClick={navigateToCompanyResponse}>My Requests</button> */}
             </div>
             
             <div class="profileText">
@@ -81,8 +75,8 @@ function CompanyProfilePage() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
             <Routes>
                 <Route path="/companynewinternship" element={<CompanyNewInternship />} />
-                <Route path="/candidateinvites" element={<CompanyInvites />} />
-                <Route path="/candidaterequests" element={<CompanyRequests />} />
+                <Route path="/companymypostings" element={<CompanyMyPostings />} />
+                {/* <Route path="/candidaterequests" element={<CompanyRequests />} /> */}
             </Routes>
     </div>
   );

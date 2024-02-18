@@ -26,7 +26,6 @@ import { useLocation } from 'react-router-dom';
 function CandidateDetailsPage() {
 
     const location = useLocation();
-    console.log("this is state" + location.state); // Check if student object is received
 
     const { student } = location.state;
     console.log("this is student" + student); // Check the contents of the student object

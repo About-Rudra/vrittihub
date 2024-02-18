@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateProfilePage from "./CandidateProfilePage";
 import Modal from "../general/Modal";
+import Cookies from "js-cookie";
 
 function CandidateDetailsForm() {
   const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ function CandidateDetailsForm() {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     console.log('Submit event fired: ', JSON.stringify(formData));
+    formData.email = Cookies.get('email');
     if (Object.values(formData).some(value => value.trim() === '')) {
       // At least one field is empty, display error message or prevent navigation
       alert('Please fill out all fields');
@@ -34,6 +36,9 @@ function CandidateDetailsForm() {
     } else {
       handleOpen();
     }
+
+    // const email = Cookies.get('email'); //getting email id from cookie
+    // console.log("Retrieved email as: " + email);
 
     // Process the form data (e.g., send it to the server)
     fetch('http://localhost:5000/studentdetails', {
@@ -54,7 +59,7 @@ function CandidateDetailsForm() {
 
     console.log('Form submitted:', formData);
     // Reset form fields
-    setFormData({ name: '', qualification: '', email: '', skills: '', achievements: '', contactno: '', interestedinternship: '', collegename: '' });
+    setFormData({ name: '', qualification: '', skills: '', achievements: '', contactno: '', interestedinternship: '', collegename: '' });
     setTimeout(() => {
       navigateToCandidateProfilePage();
     }, 2000);
@@ -94,7 +99,6 @@ function CandidateDetailsForm() {
             <input type="text" class="cogform1" id="collegename" name="collegename" value={formData.collegename} onChange={handleInputChange} placeholder="School/College Name" />
             <input type="text" class="cogform1" id="skills" name="skills" value={formData.skills} onChange={handleInputChange} placeholder="Skills/Acheivements " />
             <input type="text" class="cogform1" id="achievements" name="achievements" value={formData.achievements} onChange={handleInputChange} placeholder="Bio" />
-            <input type="text" class="cogform1" id="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email ID" />
             <input type="text" class="cogform1" id="locations" name="locations" value={formData.locations} onChange={handleInputChange} placeholder="Location" />
             <input type="text" class="cogform1" id="interestedinternship" name="interestedinternship" value={formData.interestedinternship} onChange={handleInputChange} placeholder="Interested Internships" />
 

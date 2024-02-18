@@ -28,6 +28,7 @@ function CompanySignup() {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     console.log('Submit event fired: ', JSON.stringify(formData));
+    
     if (Object.values(formData).some(value => value.trim() === '')) {
       // At least one field is empty
       setErrors(prevState => ({
@@ -60,10 +61,11 @@ function CompanySignup() {
           // Set the email id in a cookie
           console.log("All Ok");
           Cookies.set('email', formData.email);
+          Cookies.set('role', "company");
 
           setTimeout(() => {
             navigateToCompanyDetailsForm();
-          }, 2000);
+          }, 0);
         } else {
           if (response.status === 400) {
             //Bad request - User already exists
@@ -135,12 +137,12 @@ function CompanySignup() {
               style={{ borderColor: errors.password ? 'red' : '' }}
             />
             {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
-            <button type="submit" class="signupco" >Submit</button>
-            <Modal isOpen={open} onClose={handleClose}>
+            <button type="submit" class="signupco" >Next</button>
+            {/* <Modal isOpen={open} onClose={handleClose}>
               <>
                 <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
               </>
-            </Modal>
+            </Modal> */}
             <button type="button" class="google-sign-in-button" >
               Sign in with Google
             </button>

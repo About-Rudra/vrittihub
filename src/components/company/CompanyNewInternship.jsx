@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Modal from "../general/Modal";
 import CompanyProfilePage from "./CompanyProfilePage";
+import Cookies from "js-cookie";
 
 function CompanyNewInternship() {
   const [open, setOpen] = useState(false);
@@ -36,6 +37,7 @@ function CompanyNewInternship() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submit event fired: ', JSON.stringify(formData));
+    formData.email = Cookies.get('email');
     if (Object.values(formData).some(value => value.trim() === '')) {
       // At least one field is empty, display error message or prevent navigation
       alert('Please fill out all fields');
@@ -44,7 +46,10 @@ function CompanyNewInternship() {
       handleOpen();
     }
 
-    fetch('http://localhost:5000/postinternship', {
+    const email = Cookies.get('email'); //getting email id from cookie
+    console.log("Retrieved email as: " + email);
+
+    fetch('http://localhost:5000/internship', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -63,10 +68,10 @@ function CompanyNewInternship() {
 
       console.log('Form submitted:', formData);
     // Reset form fields
-    setFormData({ companyname: '', qualification: '', contactnumber: '', position: '', skills: '', jd: '', email: '', location: '', interesteddomain: ''});
+    setFormData({ companyname: '', qualification: '', contactnumber: '', position: '', skills: '', jd: '', location: '', interesteddomain: ''});
     setTimeout(() => {
       navigateToCompanyProfilePage();
-    }, 2000);
+    }, 1000);
   };
 
   const navigate = useNavigate();
@@ -95,7 +100,6 @@ function CompanyNewInternship() {
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="position" value={formData.position} onChange={handleInputChange} placeholder="Position Name" />
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="skills" value={formData.skills} onChange={handleInputChange} placeholder="Skills Required" />
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="jd" value={formData.jd} onChange={handleInputChange} placeholder="Job Description" />
-                <input type="text" class="cogform1" id="formGroupExampleInput" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email ID" />
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="location" value={formData.location} onChange={handleInputChange} placeholder="Location" />
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="interesteddomain" value={formData.interestedinternship} onChange={handleInputChange} placeholder="Interested Domain" />
                 <label class="form-label" id="photolabel" for="customFile">Upload Letter</label>
