@@ -24,7 +24,7 @@ function CandidateListOfApplications(){
     }, []); // Empty dependency array to fetch data only once when the component mounts
     const navigate = useNavigate();
     const navigateToCompanyDetailsPage = (student) => {
-        navigate('/CompanyDetailsView', { state: { student } });
+        navigate('/companydetailsview', { state: { student } });
     }
     return(
 <div>
@@ -57,7 +57,7 @@ function CandidateListOfApplications(){
                 )}
             </div>
             <Routes>
-                <Route path="/CompanyDetailsView" element={<CompanyDetailsPage />} />
+                <Route path="/companydetailsview" element={<CompanyDetailsPage />} />
             </Routes>
         
         

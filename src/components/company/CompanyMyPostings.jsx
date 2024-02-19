@@ -59,7 +59,7 @@ function CompanyMyPostings() {
                 )}
             </div>
             <Routes>
-                <Route path="/CompanyInternshipWhoApplied" element={<CompanyInternshipWhoApplied />} />
+                <Route path="/companyinternshipwhoapplied" element={<CompanyInternshipWhoApplied />} />
             </Routes>
 
         </div>

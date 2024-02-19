@@ -37,13 +37,13 @@ const AboutUs = () => {
       <div style={styles.member}>
         <h2 style={styles.name}>Atharva Mote</h2>
         <p style={styles.info}>
-          Hey there, I'm Atharva. I'm passionate about web development and always eager to learn new technologies.
+          Hey there, I'm Atharva.  I enjoy crafting beautiful user interfaces and making websites come to life.
         </p>
       </div>
       <div style={styles.member}>
         <h2 style={styles.name}>Harshal Suryawanshi</h2>
         <p style={styles.info}>
-          Hello, I'm Harshal. I enjoy crafting beautiful user interfaces and making websites come to life.
+          Hello, I'm Harshal. I'm passionate about web development and always eager to learn new technologies.
         </p>
       </div>
       <div style={styles.member}>

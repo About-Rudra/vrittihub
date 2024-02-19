@@ -24,9 +24,9 @@ function navigateToProfilePage(){
   const role = Cookies.get('role')
   console.log(role)
   if(role === 'company'){
-    navigate('/CompanyProfilePage')
+    navigate('/companyprofilepage')
   }else{
-    navigate('/CandidateProfilePage')
+    navigate('/candidateprofilepage')
   }
 }
 
@@ -53,8 +53,8 @@ function navigateToProfilePage(){
             <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/aboutus" element={<AboutUs />} />
-                <Route path="/CompanyProfilePage" element={<CompanyProfilePage />} />
-                <Route path="/CandidateProfilePage" element={<CandidateProfilePage />} />
+                <Route path="/companyprofilepage" element={<CompanyProfilePage />} />
+                <Route path="/candidateprofilepage" element={<CandidateProfilePage />} />
             </Routes>
     </header>
   );

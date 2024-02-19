@@ -59,7 +59,7 @@ function CandidateExplorePage() {
                 )}
             </div>
             <Routes>
-                <Route path="/CandidateApplyForInternship" element={<CandidateApplyForInternship />} />
+                <Route path="/candidateapplyforinternship" element={<CandidateApplyForInternship />} />
             </Routes>
         </div>
     );

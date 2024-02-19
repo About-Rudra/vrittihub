@@ -28,7 +28,7 @@ function navigateToCandidateSignup(){
         </div>
     </div>
             <Routes>
-                <Route path="/companysignuo" element={<CompanySignup />} />
+                <Route path="/companysignup" element={<CompanySignup />} />
                 <Route path="/candidatesignup" element={<CandidateSignup />} />
             </Routes>
     </div>

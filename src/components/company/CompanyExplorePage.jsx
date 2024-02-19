@@ -27,7 +27,7 @@ function CompanyExplorePage(){
 
     const navigate = useNavigate();
     const navigateToCandidateDetailsPage = (student) => {
-        navigate('/CandidateDetailsView', { state: { student } });
+        navigate('/candidatedetailsview', { state: { student } });
     }
     return(
         <div>
@@ -55,7 +55,7 @@ function CompanyExplorePage(){
             </div>
            
             <Routes>
-                <Route path="/CandidateDetailsView" element={<CandidateDetailsPage />} />
+                <Route path="/candidatedetailsview" element={<CandidateDetailsPage />} />
             </Routes>
     </div>
     );

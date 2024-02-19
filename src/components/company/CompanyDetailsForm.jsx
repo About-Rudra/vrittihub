@@ -117,7 +117,7 @@ function CompanyDetailsForm() {
 
     </div>
     <Routes>
-                <Route path="/Companyprofilepage" element={<CompanyProfilePage />} />
+                <Route path="/companyprofilepage" element={<CompanyProfilePage />} />
             </Routes>
 </div>
   );

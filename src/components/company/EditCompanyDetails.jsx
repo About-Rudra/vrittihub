@@ -119,7 +119,7 @@ function EditCompanyDetails() {
 
     </div>
     <Routes>
-                <Route path="/Companyprofilepage" element={<CompanyProfilePage />} />
+                <Route path="/companyprofilepage" element={<CompanyProfilePage />} />
             </Routes>
 </div>
   );

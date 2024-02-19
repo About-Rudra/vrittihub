@@ -33,7 +33,7 @@ function CompanyInternshipWhoApplied() {
 
     const navigate = useNavigate();
     const navigateToCandidateDetailsPage = (application) => {
-        navigate('/CandidateDetailsView', { state: { application } });
+        navigate('/candidatedetailsview', { state: { application } });
     }
 
     return (
@@ -62,7 +62,7 @@ function CompanyInternshipWhoApplied() {
             </div>
 
             <Routes>
-                <Route path="/CandidateDetailsView" element={<CandidateDetailsPage />} />
+                <Route path="/candidatedetailsview" element={<CandidateDetailsPage />} />
             </Routes>
 
         </div>

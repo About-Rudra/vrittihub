@@ -43,22 +43,22 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/forgotpassword" element={<ForgotPass />} />
-        <Route path="/AreUA" element={<AreUA />} />
-        <Route path="/CompanySignup" element={<CompanySignup />} />
-        <Route path="/CandidateSignup" element={<CandidateSignup />} />
-        <Route path="/CompanyLogin" element={<CompanyLogin />} />
-        <Route path="/CandidateLogin" element={<CandidateLogin />} />
-        <Route path="/CompanyDetails" element={<CompanyDetailsForm />} />
-        <Route path="/CandidateDetails" element={<CandidateDetailsForm />} />
-        <Route path="/CompanyDetailsView" element={<CompanyDetailsPage />} />
-        <Route path="/CandidateDetailsView" element={<CandidateDetailsPage />} />
-        <Route path="/CompanyProfilePage" element={<CompanyProfilePage />} />
-        <Route path="/CandidateProfilePage" element={<CandidateProfilePage />} />
-        <Route path="/CandidateApplyForInternship" element={<CandidateApplyForInternship />} />
-        <Route path="/CompanyNewInternship" element={<CompanyNewInternship/>} />
-        <Route path="/CandidateListOfApplications" element={<CandidateListOfApplications/>} />
+        <Route path="/areua" element={<AreUA />} />
+        <Route path="/companysignup" element={<CompanySignup />} />
+        <Route path="/candidatesignup" element={<CandidateSignup />} />
+        <Route path="/companylogin" element={<CompanyLogin />} />
+        <Route path="/candidatelogin" element={<CandidateLogin />} />
+        <Route path="/companydetails" element={<CompanyDetailsForm />} />
+        <Route path="/candidatedetails" element={<CandidateDetailsForm />} />
+        <Route path="/companydetailsview" element={<CompanyDetailsPage />} />
+        <Route path="/candidatedetailsview" element={<CandidateDetailsPage />} />
+        <Route path="/companyprofilepage" element={<CompanyProfilePage />} />
+        <Route path="/candidateprofilepage" element={<CandidateProfilePage />} />
+        <Route path="/candidateapplyforinternship" element={<CandidateApplyForInternship />} />
+        <Route path="/companynewinternship" element={<CompanyNewInternship/>} />
+        <Route path="/candidatelistofapplications" element={<CandidateListOfApplications/>} />
         <Route path="/companymypostings/*" element={<CompanyMyPostings/>} />
-        <Route path="/CompanyInternshipWhoApplied" element={<CompanyInternshipWhoApplied/>} />
+        <Route path="/companyinternshipwhoapplied" element={<CompanyInternshipWhoApplied/>} />
         <Route path="/areualogin" element={<AreUALogin/>} />
         <Route path="/explorecompany" element={<CompanyExplorePage/>} />
         <Route path="/explorecandidate" element={<CandidateExplorePage/>} />
