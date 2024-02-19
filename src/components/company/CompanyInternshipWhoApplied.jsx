@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import CandidateDetailsPage from "../candidate/CandidateDetailsPage";
 import { useLocation } from 'react-router-dom';
+import Header3 from "../general/Header3";
 
 function CompanyInternshipWhoApplied() {
 
@@ -37,7 +38,7 @@ function CompanyInternshipWhoApplied() {
 
     return (
         <div>
-            <Header1 />
+            <Header3 />
 
             <h1 id="Exploreh1">Students Who applied</h1>
             <div id="ExploreContainer">

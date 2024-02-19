@@ -27,8 +27,8 @@ function CandidateDetailsPage() {
 
     const location = useLocation();
 
-    const { student } = location.state;
-    console.log("this is student" + student); // Check the contents of the student object
+    const { application } = location.state;
+    console.log("this is student" + application); // Check the contents of the student object
 
 
     // const email = Cookies.get('email');
@@ -68,15 +68,15 @@ function CandidateDetailsPage() {
                         {/* {CandidateDetailsEntry.map(renderEntry)} */}
                         {/* {studentDetails ? ( */}
                             <div>
-                            <h1>I'm {student.student_name}!</h1>
-                        <p>Bio: {student.bio}</p>
-                        <p>Qualification: {student.qualification}</p>
-                        <p>Contact Number: {student.contact_no}</p>
-                        <p>College Name: {student.college_name}</p>
-                        <p>Skills/Achievements: {student.skills_achievements}</p>
-                        <p>Email id: {student.email}</p>
-                        <p>Location: {student.locations}</p>
-                        <p>Interests: {student.where_internship}</p>
+                            <h1>I'm {application.student_name}!</h1>
+                        <p>Bio: {application.bio}</p>
+                        <p>Qualification: {application.qualification}</p>
+                        <p>Contact Number: {application.contact_no}</p>
+                        <p>College Name: {application.college_name}</p>
+                        <p>Skills/Achievements: {application.skills_achievements}</p>
+                        <p>Email id: {application.email}</p>
+                        <p>Location: {application.locations}</p>
+                        <p>Interests: {application.where_internship}</p>
                             </div>
                         {/* ) : ( */}
                            
@@ -84,7 +84,7 @@ function CandidateDetailsPage() {
 
                     </div>
 
-                    <button type="submit" className="btn btn-primary" id="submitButton" >Send Invite</button>
+                    {/* <button type="submit" className="btn btn-primary" id="submitButton" >Send Invite</button> */}
                 </div>
                 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossOrigin="anonymous"></script>
 

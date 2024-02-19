@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateNewInternship from "./CandidateApplyForInternship";
 import Cookies from 'js-cookie';
 import CandidateListOfApplications from './CandidateListOfApplications';
+import EditCandidateDetails from './EditCandidateDetails';
 
 function CandidateProfilePage() {
 
@@ -30,6 +31,9 @@ function CandidateProfilePage() {
     const navigate = useNavigate();
     function navigateToCandidateListOfApplications(){
         navigate('/candidatelistofapplications')
+    }
+    function navigateToEditCandidateDetails(){
+        navigate('/editcandidatedetails')
     }
     
 
@@ -68,7 +72,7 @@ function CandidateProfilePage() {
                         )}
             </div>
 
-            <button type="submit" className="btn btn-primary" id="submitButton" >Edit</button>
+            <button type="submit" className="btn btn-primary" id="submitButton" onClick={navigateToEditCandidateDetails} >Edit</button>
             {/* <button type="submit" className="btn btn-primary" id="PostNewButton" onClick={navigateToCandidateNewInternship}>Post New Internship</button> */}
         </div>
          
@@ -80,6 +84,7 @@ function CandidateProfilePage() {
                 <Route path="/candidatelistofapplications" element={<CandidateListOfApplications />} />
                 {/* <Route path="/candidateinvites" element={<CandidateInvites />} />
                 <Route path="/candidaterequests" element={<CandidatesRequests />} /> */}
+                <Route path="/editcandidatedetails" element={<EditCandidateDetails />} />
             </Routes>
     </div>
   );

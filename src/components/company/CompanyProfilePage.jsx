@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import CompanyNewInternship from "./CompanyNewInternship";
 import Cookies from 'js-cookie';
 import CompanyMyPostings from "./CompanyMyPostings";
+import EditCompanyDetails from "./EditCompanyDetails";
 
 
 function CompanyProfilePage() {
@@ -31,6 +32,9 @@ function CompanyProfilePage() {
     }
     function navigateToMyPostings(){
         navigate('/companymypostings')
+    }
+    function navigateToEditCompanyDetails(){
+        navigate('/editcompanydetails')
     }
 
   return (
@@ -65,7 +69,7 @@ function CompanyProfilePage() {
                         )}
             </div>
 
-            <button type="submit" class="btn btn-primary" id="submitButton" >Edit</button>
+            <button type="submit" class="btn btn-primary" id="submitButton" onClick={navigateToEditCompanyDetails} >Edit</button>
             <button type="submit" class="btn btn-primary" id="PostNewButton" onClick={navigateToCompanyNewInternship}>Post New Internship</button>
         </div>
          
@@ -77,6 +81,7 @@ function CompanyProfilePage() {
                 <Route path="/companynewinternship" element={<CompanyNewInternship />} />
                 <Route path="/companymypostings" element={<CompanyMyPostings />} />
                 {/* <Route path="/candidaterequests" element={<CompanyRequests />} /> */}
+                <Route path="/editcompanydetails" element={<EditCompanyDetails />} />
             </Routes>
     </div>
   );

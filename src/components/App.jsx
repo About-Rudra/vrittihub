@@ -23,6 +23,10 @@ import CompanyExplorePage from "./company/CompanyExplorePage";
 import CandidateExplorePage from "./candidate/CandidateExplorePage";
 import CompanyMyPostings from "./company/CompanyMyPostings";
 import CompanyInternshipWhoApplied from "./company/CompanyInternshipWhoApplied";
+import EditCandidatePage from "./candidate/EditCandidateDetails";
+import EditCandidateDetails from "./candidate/EditCandidateDetails";
+import EditCompanyDetails from "./company/EditCompanyDetails";
+import Header3 from "./general/Header3";
 
 
 // import { BrowserRouter as Router } from 'react-router-dom';
@@ -36,7 +40,7 @@ function App() {
     
     
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/forgotpassword" element={<ForgotPass />} />
         <Route path="/AreUA" element={<AreUA />} />
@@ -53,11 +57,14 @@ function App() {
         <Route path="/CandidateApplyForInternship" element={<CandidateApplyForInternship />} />
         <Route path="/CompanyNewInternship" element={<CompanyNewInternship/>} />
         <Route path="/CandidateListOfApplications" element={<CandidateListOfApplications/>} />
-        <Route path="/companymypostings" element={<CompanyMyPostings/>} />
+        <Route path="/companymypostings/*" element={<CompanyMyPostings/>} />
         <Route path="/CompanyInternshipWhoApplied" element={<CompanyInternshipWhoApplied/>} />
         <Route path="/areualogin" element={<AreUALogin/>} />
         <Route path="/explorecompany" element={<CompanyExplorePage/>} />
         <Route path="/explorecandidate" element={<CandidateExplorePage/>} />
+        <Route path="/editcandidatedetails" element={<EditCandidateDetails/>} />
+        <Route path="/editcompanydetails" element={<EditCompanyDetails/>} />
+        
 
       </Routes>
     

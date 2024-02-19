@@ -1,8 +1,32 @@
 import React from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Home from './Home';
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
+    function navigateToHome() {
+        navigate('/home');
+    }
   return (
     <div style={styles.container}>
+    <nav class="navbar navbar-expand navbar-dark bg-dark" id="main-header" style={{ backgroundColor: "black" }}>
+                <a class="navbar-brand" href="#" style={{ color: "burlywood" }}>VrittiHUB</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <a class="nav-link" href="#" onClick={navigateToHome}>Home <span class="sr-only"></span></a>
+                    
+
+                </div>
+                <Routes>
+                <Route path="/home" element={<Home />} />
+            </Routes>
+            </nav>
       <h1 style={styles.heading}>About Us</h1>
       <div style={styles.member}>
         <h2 style={styles.name}>Rudra Khandelwal</h2>

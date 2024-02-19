@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import Header1 from "../general/Header1";
 
 function CandidateApplyForInternship() {
-
+  const email = Cookies.get('email');
   
   const location = useLocation();
   console.log("This is Intership details" + location.state); 
@@ -40,8 +40,9 @@ function CandidateApplyForInternship() {
     event.preventDefault(); // Prevent default form submission behavior
     console.log('Submit event fired: ', JSON.stringify(formData));
     formData.email = Cookies.get('email');
-    formData.internshipid = internshipdetails.internship_id;
-    console.log("internship" + internshipdetails.intership_id)
+    console.log('cookie is' + email)
+    formData.internshipid = internshipdetails.internship_id.toString();
+    console.log("internship " +  formData.internshipid)
     if (Object.values(formData).some(value => value.trim() === '')) {
       // At least one field is empty, display error message or prevent navigation
       alert('Please fill out all fields');
