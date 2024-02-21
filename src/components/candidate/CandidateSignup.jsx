@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateDetailsForm from "./CandidateDetailsForm";
 import Cookies from 'js-cookie';
 import Modal from "../general/Modal";
+import Modal1 from "../general/Modal1";
 
 function CandidateSignup() {
   const [open, setOpen] = useState(false);
@@ -18,6 +19,13 @@ function CandidateSignup() {
 
 const handleOpen = () => {
     setOpen(true);
+};
+const handleClose1 = () => {
+  setOpen(false);
+};
+
+const handleOpen1 = () => {
+  setOpen(true);
 };
 
   const handleSubmit = (event) => {
@@ -52,7 +60,7 @@ const handleOpen = () => {
           }, 1000);
         } else {
           if(response.status === 400) {
-            alert('User already present');
+            handleOpen1();
             console.log("Received bad request from backend");
           } else {
             console.log("Backend error: " + response.status);
@@ -99,6 +107,11 @@ const handleOpen = () => {
                     <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
                 </>
             </Modal>
+            <Modal1 isOpen={open} onClose={handleClose1}>
+              <>
+                <h1 style={{ marginTop: '5rem' }}>User Already Present :(</h1>
+              </>
+            </Modal1>
             <button type="button" className="google-sign-in-button" >
               Sign in with Google
             </button>

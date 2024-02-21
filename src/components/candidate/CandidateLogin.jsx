@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateProfilePage from "./CandidateProfilePage";
 import Cookies from 'js-cookie';
 import Modal from "../general/Modal";
+import Modal2 from "../general/Modal2";
 
 function CandidateLogin() {
   const [open, setOpen] = useState(false);
@@ -17,6 +18,13 @@ function CandidateLogin() {
   };
 
   const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose1 = () => {
+    setOpen(false);
+  };
+
+  const handleOpen1 = () => {
     setOpen(true);
   };
 
@@ -49,8 +57,9 @@ function CandidateLogin() {
           Cookies.set('role', "candidate");
           setTimeout(() => {
           navigateToCandidateProfilePage();
-          }, 0);
+          }, 1000);
         } else {
+          handleOpen1();
           console.log("Error received from backend: " + response.status);
         }
         
@@ -78,6 +87,12 @@ function CandidateLogin() {
   function navigateToCandidateProfilePage() {
     navigate('/candidateprofilepage')
   }
+  function navigateToCandidateSignup(){
+    navigate('/candidatesignup')
+  }
+  function navigateToCompanyLogin(){
+    navigate('/companylogin')
+  }
 
   return (
     <div id="signupCoContainer">
@@ -85,9 +100,9 @@ function CandidateLogin() {
 
         <h1>Signed Already?
           <br />Login:) </h1>
-        <a href="#">Dont have an account? Signup :)</a>
+        <a href="#" onClick={navigateToCandidateSignup}>Dont have an account? Signup :)</a>
         <br />
-        <a href="#">Are you a Recruiter?</a>
+        <a href="#" onClick={navigateToCompanyLogin}>Are you a Recruiter?</a>
       </div>
 
       <div id="signupCoForm">
@@ -106,6 +121,11 @@ function CandidateLogin() {
                 <h1 style={{ marginTop: '5rem' }}>Successfully Logged in!!</h1>
               </>
             </Modal>
+            <Modal2 isOpen={open} onClose={handleClose1}>
+              <>
+                <h1 style={{ marginTop: '5rem' }}>Candidate not registered :(</h1>
+              </>
+            </Modal2>
           </form>
         </div>
 

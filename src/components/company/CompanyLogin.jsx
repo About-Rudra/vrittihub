@@ -5,6 +5,9 @@ import CompanyDetailsPage from "./CompanyDetailsPage";
 import CompanyProfilePage from "./CompanyProfilePage";
 import Cookies from 'js-cookie';
 import Modal from "../general/Modal";
+import Modal2 from "../general/Modal2";
+import CompanySignup from "./CompanySignup";
+import CandidateLogin from "../candidate/CandidateLogin";
 
 function CompanyLogin() {
   const [open, setOpen] = useState(false);
@@ -18,6 +21,13 @@ function CompanyLogin() {
   };
 
   const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose1 = () => {
+    setOpen(false);
+  };
+
+  const handleOpen1 = () => {
     setOpen(true);
   };
 
@@ -51,9 +61,10 @@ function CompanyLogin() {
           Cookies.set('role', "company");
           setTimeout(() => {
             navigateToCompanyProfilePage();
-          }, 0);
+          }, 1000);
 
         } else {
+          handleOpen1();
           console.log("Error received from backend: " + response.status);
         }
 
@@ -82,6 +93,12 @@ function CompanyLogin() {
   function navigateToCompanyProfilePage() {
     navigate('/companyprofilepage')
   }
+  function navigateToCompanySignup(){
+    navigate('/companysignup')
+  }
+  function navigateToCandidateLogin(){
+    navigate('/candidatelogin')
+  }
 
   return (
     <div id="signupCoContainer">
@@ -89,9 +106,9 @@ function CompanyLogin() {
 
         <h1>Signed Already?
           <br />Login:)</h1>
-        <a href="#">Dont have an account? Signup :)</a>
+        <a href="#" onClick={navigateToCompanySignup}>Dont have an account? Signup :)</a>
         <br />
-        <a href="#">Are you a Candidate?</a>
+        <a href="#" onClick={navigateToCandidateLogin}>Are you a Candidate?</a>
       </div>
 
       <div id="signupCoForm">
@@ -112,6 +129,11 @@ function CompanyLogin() {
                 <h1 style={{ marginTop: '5rem' }}>Successfully Logged in!!</h1>
               </>
             </Modal>
+            <Modal2 isOpen={open} onClose={handleClose1}>
+              <>
+                <h1 style={{ marginTop: '5rem' }}>Company not registered :(</h1>
+              </>
+            </Modal2>
           </form>
         </div>
 
@@ -119,6 +141,8 @@ function CompanyLogin() {
       </div>
       <Routes>
         <Route path="/companyprofilepage" element={<CompanyProfilePage />} />
+        <Route path="/companysignup" element={<CompanySignup />} />
+        <Route path="/candidatelogin" element={<CandidateLogin />} />
       </Routes>
     </div>
   );
