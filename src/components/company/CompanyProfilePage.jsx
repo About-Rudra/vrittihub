@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Header from "../general/Header";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CompanyNewInternship from "./CompanyNewInternship";
 import Cookies from 'js-cookie';
 import CompanyMyPostings from "./CompanyMyPostings";
 import EditCompanyDetails from "./EditCompanyDetails";
+import Header3 from "../general/Header3";
 
 
 function CompanyProfilePage() {
@@ -39,17 +39,17 @@ function CompanyProfilePage() {
 
   return (
     <div>
-    <Header />
+    <Header3 />
         <div id="CDPContainer">
         
         <div class="CDP">
             <img src="https://imgs.search.brave.com/7c7uWwnjKKj5dXEQbj9HxKJqJrNIVoz7XJFbLmPVJyA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvcGZw/LXBpY3R1cmVzLWNx/anMzb3N2ZGxqdGho/NTMuanBn" height="80%" width="100%" alt="" />
         </div>
         <div class="CDP">
-            <div class="ProfileButtons">
-                <button type="button" class="btn btn-primary" id="InviteButton" onClick={navigateToMyPostings}>My Postings</button>
-                {/* <button type="button" class="btn btn-primary" id="RequestButton" onClick={navigateToCompanyResponse}>My Requests</button> */}
-            </div>
+            {/* <div class="ProfileButtons">
+                <button type="button" class="btn btn-primary" id="InviteButton" onClick={navigateToMyPostings}>My Postings</button> */}
+                {/* <button type="button" class="btn btn-primary" id="RequestButton" onClick={navigateToCompanyResponse}>My Requests</button>
+            </div> */}
             
             <div class="profileText">
             {companyDetails ? (
@@ -61,7 +61,7 @@ function CompanyProfilePage() {
                                 <p><strong style={{fontSize:"1.5rem"}}>Position Name: </strong>{companyDetails.position_name}</p>
                                 <p><strong style={{fontSize:"1.5rem"}}>Skills Required: </strong>{companyDetails.skills_required}</p>
                                 <p><strong style={{fontSize:"1.5rem"}}>Email id: </strong>{companyDetails.email}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>location: </strong>{companyDetails.locations}</p>
+                                <p><strong style={{fontSize:"1.5rem"}}>Location: </strong>{companyDetails.locations}</p>
                                 <p><strong style={{fontSize:"1.5rem"}}>Work Domain: </strong>{companyDetails.interested_domain}</p>
                             </div>
                         ) : (

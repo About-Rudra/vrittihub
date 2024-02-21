@@ -102,8 +102,8 @@ function CompanyNewInternship() {
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="jd" value={formData.jd} onChange={handleInputChange} placeholder="Job Description" />
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="location" value={formData.location} onChange={handleInputChange} placeholder="Location" />
                 <input type="text" class="cogform1" id="formGroupExampleInput" name="interesteddomain" value={formData.interestedinternship} onChange={handleInputChange} placeholder="Interested Domain" />
-                <label class="form-label" id="photolabel" for="customFile">Upload Letter</label>
-                <input type="file" class="form-label" id="customFile" />
+                {/* <label class="form-label" id="photolabel" for="customFile">Upload Letter</label>
+                <input type="file" class="form-label" id="customFile" /> */}
                 <button type="submit" class="signupco1">Post</button>
                 <Modal isOpen={open} onClose={handleClose}>
               <>

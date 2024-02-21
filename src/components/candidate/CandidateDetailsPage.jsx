@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from "../general/Header";
 import Cookies from 'js-cookie';
 import { useLocation } from 'react-router-dom';
+import Header3 from '../general/Header3';
 
 
 
@@ -53,7 +54,7 @@ function CandidateDetailsPage() {
 
     return (
         <div>
-            <Header />
+            <Header3 />
             <div id="CDPContainer">
 
 
@@ -69,14 +70,14 @@ function CandidateDetailsPage() {
                         {/* {studentDetails ? ( */}
                             <div>
                             <h1>I'm {application.student_name}!</h1>
-                        <p>Bio: {application.bio}</p>
-                        <p>Qualification: {application.qualification}</p>
-                        <p>Contact Number: {application.contact_no}</p>
-                        <p>College Name: {application.college_name}</p>
-                        <p>Skills/Achievements: {application.skills_achievements}</p>
-                        <p>Email id: {application.email}</p>
-                        <p>Location: {application.locations}</p>
-                        <p>Interests: {application.where_internship}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>Bio:</strong> {application.bio}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>Qualification: </strong>{application.qualification}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>Contact Number: </strong>{application.contact_no}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>College Name: </strong>{application.college_name}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>Skills/Achievements: </strong>{application.skills_achievements}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>Email id: </strong>{application.email}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>Location: </strong>{application.locations}</p>
+                        <p><strong style={{fontSize:'1.2rem'}}>Interests: </strong>{application.where_internship}</p>
                             </div>
                         {/* ) : ( */}
                            

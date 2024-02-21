@@ -51,7 +51,7 @@ function CompanyLogin() {
           Cookies.set('role', "company");
           setTimeout(() => {
             navigateToCompanyProfilePage();
-          }, 2000);
+          }, 0);
 
         } else {
           console.log("Error received from backend: " + response.status);

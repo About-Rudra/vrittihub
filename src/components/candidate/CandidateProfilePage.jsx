@@ -59,13 +59,13 @@ function CandidateProfilePage() {
                             <div>
                                 <h1>I'm {studentDetails.name}!</h1>
                                 <p>{studentDetails.achievements}</p>
-                                <p>Qualification: {studentDetails.qualification}</p>
-                                <p>Contact Number: {studentDetails.contact_no}</p>
-                                <p>College Name: {studentDetails.college_name}</p>
-                                <p>Skills/Acheivements: {studentDetails.skills}</p>
-                                <p>Email id: {studentDetails.email}</p>
-                                <p>location: {studentDetails.locations}</p>
-                                <p>Interests: {studentDetails.interested_internship}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Qualification:</strong> {studentDetails.qualification}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Contact Number: </strong>{studentDetails.contact_no}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>College Name: </strong>{studentDetails.college_name}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Skills/Acheivements: </strong>{studentDetails.skills}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Email id: </strong>{studentDetails.email}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Location: </strong>{studentDetails.locations}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Interests: </strong>{studentDetails.interested_internship}</p>
                             </div>
                         ) : (
                             <p>No student details available</p>

@@ -23,8 +23,8 @@ function CandidateListOfApplications(){
             .catch(error => console.error('Error fetching student details:', error));
     }, []); // Empty dependency array to fetch data only once when the component mounts
     const navigate = useNavigate();
-    const navigateToCompanyDetailsPage = (student) => {
-        navigate('/companydetailsview', { state: { student } });
+    const navigateToCompanyDetailsPage = (studentApplicationDetails) => {
+        navigate('/companydetailsview', { state: { studentApplicationDetails } });
     }
     return(
 <div>
@@ -32,21 +32,24 @@ function CandidateListOfApplications(){
             
             <h1 id="Exploreh1">My Applications</h1>
             <div id="ExploreContainer">
-                {studentApplicationDetails.map(student =>
+                {studentApplicationDetails.map(studentApplicationDetails =>
                 
-                    <div key={student.email} className="studentDetailsContainer">
+                    <div key={studentApplicationDetails.email} className="studentDetailsContainer">
                     
 
                         <div id="ExploreImage">
                             <img src="https://imgs.search.brave.com/7c7uWwnjKKj5dXEQbj9HxKJqJrNIVoz7XJFbLmPVJyA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvcGZw/LXBpY3R1cmVzLWNx/anMzb3N2ZGxqdGho/NTMuanBn" width="100%" alt="" />
-                            <button type="button" class="btn btn-info" id="DetailsButton" onClick={() => navigateToCompanyDetailsPage(student)}>Details</button>
+
+                            {/* //in this button pass on student details than company details */}
+                            
+                            <button type="button" class="btn btn-info" id="DetailsButton" onClick={() => navigateToCompanyDetailsPage(studentApplicationDetails)}>Details</button>
                         </div>
                         <div id="ExploreContent">
 
                         {/* change to company details rather than student from internship_post */}
-                            <h2>{student.student_name}</h2>
-                            <h4>{student.qualification}</h4>
-                            <h6>{student.contact_no}</h6>
+                            <h2>{studentApplicationDetails.student_name}</h2>
+                            <h4>{studentApplicationDetails.qualification}</h4>
+                            <h6>{studentApplicationDetails.contact_no}</h6>
                             {/* {company.contact_no}  {company.qualification_required}  {company.skills_required} 
                             {company.email}  {company.locations}  {company.interested_domain} */}
 

@@ -12,7 +12,7 @@ function CandidateApplyForInternship() {
   const location = useLocation();
   console.log("This is Intership details" + location.state); 
 
-  const { internshipdetails } = location.state;
+  const { internship } = location.state;
   
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ function CandidateApplyForInternship() {
     console.log('Submit event fired: ', JSON.stringify(formData));
     formData.email = Cookies.get('email');
     console.log('cookie is' + email)
-    formData.internshipid = internshipdetails.internship_id.toString();
+    formData.internshipid = internship.internship_id.toString();
     console.log("internship " +  formData.internshipid)
     if (Object.values(formData).some(value => value.trim() === '')) {
       // At least one field is empty, display error message or prevent navigation
@@ -99,15 +99,15 @@ function CandidateApplyForInternship() {
    
       <div id="right" style={{textAlign:"left"}}>
 
-                                <h1> <strong style={{fontSize:"3rem"}}>We Are'</strong> {internshipdetails.company_name}!</h1>
-                                <p><strong style={{fontSize:"1.5rem"}}>JD:</strong> {internshipdetails.job_description}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>Qualification Required:</strong> {internshipdetails.qualification_required}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>Contact Number:</strong> {internshipdetails.contact_no}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>Position Name:</strong> {internshipdetails.position_name}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>Skills Required:</strong> {internshipdetails.skills_required}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>Email id:</strong> {internshipdetails.email}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>location:</strong> {internshipdetails.locations}</p>
-                                <p><strong style={{fontSize:"1.5rem"}}>Work Domain:</strong> {internshipdetails.interested_domain}</p>
+                                <h1> <strong style={{fontSize:"3rem"}}>We Are'</strong> {internship.company_name}!</h1>
+                                <p><strong style={{fontSize:"1.2rem"}}>JD:</strong> {internship.job_description}</p>
+                                <p><strong style={{fontSize:"1.2rem"}}>Qualification Required:</strong> {internship.qualification_required}</p>
+                                <p><strong style={{fontSize:"1.2rem"}}>Contact Number:</strong> {internship.contact_no}</p>
+                                <p><strong style={{fontSize:"1.2rem"}}>Position Name:</strong> {internship.position_name}</p>
+                                <p><strong style={{fontSize:"1.2rem"}}>Skills Required:</strong> {internship.skills_required}</p>
+                                <p><strong style={{fontSize:"1.2rem"}}>Email id:</strong> {internship.email}</p>
+                                <p><strong style={{fontSize:"1.2rem"}}>Location:</strong> {internship.locations}</p>
+                                <p><strong style={{fontSize:"1.2rem"}}>Work Domain:</strong> {internship.interested_domain}</p>
 
       </div>
 

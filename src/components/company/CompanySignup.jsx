@@ -65,7 +65,7 @@ function CompanySignup() {
 
           setTimeout(() => {
             navigateToCompanyDetailsForm();
-          }, 0);
+          }, 1000);
         } else {
           if (response.status === 400) {
             //Bad request - User already exists
@@ -138,11 +138,11 @@ function CompanySignup() {
             />
             {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
             <button type="submit" class="signupco" >Next</button>
-            {/* <Modal isOpen={open} onClose={handleClose}>
+            <Modal isOpen={open} onClose={handleClose}>
               <>
                 <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
               </>
-            </Modal> */}
+            </Modal>
             <button type="button" class="google-sign-in-button" >
               Sign in with Google
             </button>

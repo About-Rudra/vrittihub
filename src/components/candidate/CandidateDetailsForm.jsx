@@ -102,8 +102,8 @@ function CandidateDetailsForm() {
             <input type="text" class="cogform1" id="locations" name="locations" value={formData.locations} onChange={handleInputChange} placeholder="Location" />
             <input type="text" class="cogform1" id="interestedinternship" name="interestedinternship" value={formData.interestedinternship} onChange={handleInputChange} placeholder="Interested Internships" />
 
-            <label class="form-label" id="photolabel" for="customFile">Upload photo</label>
-            <input type="file" class="form-label" id="customFile" />
+            {/* <label class="form-label" id="photolabel" for="customFile">Upload photo</label>
+            <input type="file" class="form-label" id="customFile" /> */}
 
             <button type="submit" class="signupco1">Submit</button>
             <Modal isOpen={open} onClose={handleClose}>

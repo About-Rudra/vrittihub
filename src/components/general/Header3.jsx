@@ -32,7 +32,7 @@ function navigateToMypostings(){
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <a class="navbar-brand1" href="#" style={{textDecoration: "none"}} onClick={navigateToHome}>Home </a>
                 <a class="navbar-brand1" href="#" style={{textDecoration: "none"}} onClick={navigateToAboutUs}>About</a>
-                <a class="navbar-brand1" href="#" style={{textDecoration: "none"}} onClick={navigateToMypostings}>Postings</a>
+                <a class="navbar-brand1" href="#" style={{textDecoration: "none", width:'9rem'}} onClick={navigateToMypostings}> My Postings</a>
             </div>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <InstagramIcon />

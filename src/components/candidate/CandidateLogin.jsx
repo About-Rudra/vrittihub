@@ -49,7 +49,7 @@ function CandidateLogin() {
           Cookies.set('role', "candidate");
           setTimeout(() => {
           navigateToCandidateProfilePage();
-          }, 2000);
+          }, 0);
         } else {
           console.log("Error received from backend: " + response.status);
         }

@@ -38,7 +38,7 @@ function Home() {
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <a class="nav-link" href="#" onClick={navigateToHome}>Home <span class="sr-only"></span></a>
+                    
                     <a class="nav-link" href="#" onClick={navigateToAboutUs}>About us <span class="sr-only"></span></a>
 
                     <button class="btn btn-outline-success my-2 my-sm-0" onClick={navigateToLogin}>Log in</button>

@@ -49,7 +49,7 @@ const handleOpen = () => {
           
           setTimeout(() => {
             navigateToCandidateDetailsForm();
-          }, 2000);
+          }, 1000);
         } else {
           if(response.status === 400) {
             alert('User already present');
@@ -94,11 +94,11 @@ const handleOpen = () => {
             <label></label>
             <input type="password" className="cogform" aria-describedby="cpass" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
             <button type="submit" className="signupco" >Next</button>
-            {/* <Modal isOpen={open} onClose={handleClose}>
+            <Modal isOpen={open} onClose={handleClose}>
                 <>
                     <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
                 </>
-            </Modal> */}
+            </Modal>
             <button type="button" className="google-sign-in-button" >
               Sign in with Google
             </button>

@@ -13,8 +13,8 @@ function CompanyDetailsPage() {
     const location = useLocation();
     
 
-    const { company } = location.state;
-    console.log("this is student" + company); // Check the contents of the student object
+    const { studentApplicationDetails } = location.state;
+    console.log("this is student" + studentApplicationDetails); // Check the contents of the student object
 
     // const [companyDetails, setCompanyDetails] = useState([]);
 
@@ -42,22 +42,25 @@ function CompanyDetailsPage() {
                     <div class="profileText">
                         {/* {companyDetails ? ( */}
                             <div>
-                                <h1>We Are' {company.company_name}!</h1>
-                                <p>JD: {company.job_description}</p>
-                                <p>Qualification Required: {company.qualification_required}</p>
-                                <p>Contact Number: {company.contact_no}</p>
-                                <p>Position Name: {company.position_name}</p>
-                                <p>Skills Required: {company.skills_required}</p>
-                                <p>Email id: {company.email}</p>
-                                <p>location: {company.locations}</p>
-                                <p>Work Domain: {company.interested_domain}</p>
+
+                                {/* //instead of studentdetails take company details and change the title  pass the object here */}
+
+                                <h1>I'm {studentApplicationDetails.student_name}!</h1>
+                                <p><strong style={{fontSize:'1.2rem'}}>JD:</strong> {studentApplicationDetails.bio}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Qualification: </strong>{studentApplicationDetails.qualification}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Contact Number: </strong>{studentApplicationDetails.contact_no}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Position Name: </strong>{studentApplicationDetails.position_name}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Skills : </strong>{studentApplicationDetails.skills_achievements}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Email id: </strong>{studentApplicationDetails.email}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>location: </strong>{studentApplicationDetails.locations}</p>
+                                <p><strong style={{fontSize:'1.2rem'}}>Work Domain: </strong>{studentApplicationDetails.where_internship}</p>
                             </div>
                         {/* ) : ( */}
                             {/* <p>No student details available</p> */}
                         
                     </div>
 
-                    <button type="submit" class="btn btn-primary" id="submitButton" >Send Invite</button>
+                   
                 </div>
                 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
