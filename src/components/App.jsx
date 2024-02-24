@@ -26,7 +26,9 @@ import CompanyInternshipWhoApplied from "./company/CompanyInternshipWhoApplied";
 import EditCandidatePage from "./candidate/EditCandidateDetails";
 import EditCandidateDetails from "./candidate/EditCandidateDetails";
 import EditCompanyDetails from "./company/EditCompanyDetails";
-import Header3 from "./general/Header3";
+import CandidateUploadPhoto from "./candidate/CandidateUploadPhoto";
+import CompanyUploadPhoto from "./company/CompanyUploadPhoto";
+
 
 
 // import { BrowserRouter as Router } from 'react-router-dom';
@@ -64,7 +66,9 @@ function App() {
         <Route path="/explorecandidate" element={<CandidateExplorePage/>} />
         <Route path="/editcandidatedetails" element={<EditCandidateDetails/>} />
         <Route path="/editcompanydetails" element={<EditCompanyDetails/>} />
-        
+        <Route path="/candidateuploadphoto" element={<CandidateUploadPhoto/>} />
+        <Route path="/companyuploadphoto" element={<CompanyUploadPhoto/>} />
+       
 
       </Routes>
     
