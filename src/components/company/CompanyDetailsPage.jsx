@@ -36,7 +36,8 @@ function CompanyDetailsPage() {
             <div id="CDPContainer">
 
                 <div class="CDP">
-                    <img src="https://imgs.search.brave.com/7c7uWwnjKKj5dXEQbj9HxKJqJrNIVoz7XJFbLmPVJyA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvcGZw/LXBpY3R1cmVzLWNx/anMzb3N2ZGxqdGho/NTMuanBn" height="80%" width="100%" alt="" />
+                {!studentApplicationDetails.profile_photo && <img src="https://imgs.search.brave.com/7c7uWwnjKKj5dXEQbj9HxKJqJrNIVoz7XJFbLmPVJyA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvcGZw/LXBpY3R1cmVzLWNx/anMzb3N2ZGxqdGho/NTMuanBn" height="80%" width="100%" alt="" /> }
+                {studentApplicationDetails.profile_photo && <img src={'http://localhost:5000/uploads/' +  studentApplicationDetails.profile_photo} height="80%" width="100%" alt=""/>}
                 </div>
                 <div class="CDP">
                     <div class="profileText">

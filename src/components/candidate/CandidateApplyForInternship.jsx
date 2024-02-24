@@ -131,7 +131,7 @@ function CandidateApplyForInternship() {
             <button type="submit" class="signupco1">Apply for the Internship</button>
             <Modal isOpen={open} onClose={handleClose}>
               <>
-                <h1 style={{ marginTop: '5rem' }}>New internship Posted Sucessfully!!</h1>
+                <h1 style={{ marginTop: '2rem' }}>New internship Posted Sucessfully!!</h1>
               </>
             </Modal>
           </form>

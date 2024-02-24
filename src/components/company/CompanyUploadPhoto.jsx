@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import EastIcon from '@mui/icons-material/East';
+import Cookies from "js-cookie";
 
 function CompanyUploadPhoto() {
 
     const [file, setFile] = useState(null);
+    const email = Cookies.get('email');
 
     const handleFileChange = (event) => {
       setFile(event.target.files[0]);
@@ -21,7 +22,7 @@ function CompanyUploadPhoto() {
       formData.append('image', file);
   
       try {
-        const response = await fetch('http://your-api-endpoint.com/upload', {
+        const response = await fetch(`http://localhost:5000/companyupload/${email}`, {
           method: 'POST',
           body: formData,
         });

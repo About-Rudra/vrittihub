@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import EastIcon from '@mui/icons-material/East';
 import Cookies from "js-cookie";
 
 function CandidateUploadPhoto() {
