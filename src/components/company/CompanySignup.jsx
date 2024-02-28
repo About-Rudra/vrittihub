@@ -8,6 +8,7 @@ import Modal1 from "../general/Modal1";
 
 function CompanySignup() {
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -25,11 +26,11 @@ function CompanySignup() {
     setOpen(true);
   };
   const handleClose1 = () => {
-    setOpen(false);
+    setOpen1(false);
   };
 
   const handleOpen1 = () => {
-    setOpen(true);
+    setOpen1(true);
   };
 
   // Function to handle form submission
@@ -79,6 +80,7 @@ function CompanySignup() {
             //Bad request - User already exists
             //Show to UI
             handleOpen1();
+            setOpen(false);
             console.log("Received bad request from backend");
           } else {
             //Show message to UI to try again
@@ -152,7 +154,7 @@ function CompanySignup() {
                 <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
               </>
             </Modal>
-            <Modal1 isOpen={open} onClose={handleClose1}>
+            <Modal1 isOpen={open1} onClose={handleClose1}>
               <>
                 <h1 style={{ marginTop: '5rem' }}>User Already Present :(</h1>
               </>

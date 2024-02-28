@@ -8,6 +8,7 @@ import Modal1 from "../general/Modal1";
 
 function CandidateSignup() {
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -21,11 +22,11 @@ const handleOpen = () => {
     setOpen(true);
 };
 const handleClose1 = () => {
-  setOpen(false);
+  setOpen1(false);
 };
 
 const handleOpen1 = () => {
-  setOpen(true);
+  setOpen1(true);
 };
 
   const handleSubmit = (event) => {
@@ -61,6 +62,7 @@ const handleOpen1 = () => {
         } else {
           if(response.status === 400) {
             handleOpen1();
+            setOpen(false);
             console.log("Received bad request from backend");
           } else {
             console.log("Backend error: " + response.status);
@@ -107,7 +109,7 @@ const handleOpen1 = () => {
                     <h1 style={{ marginTop: '5rem' }}>Successfully Signed in!!</h1>
                 </>
             </Modal>
-            <Modal1 isOpen={open} onClose={handleClose1}>
+            <Modal1 isOpen={open1} onClose={handleClose1}>
               <>
                 <h1 style={{ marginTop: '5rem' }}>User Already Present :(</h1>
               </>

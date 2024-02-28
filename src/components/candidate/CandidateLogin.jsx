@@ -8,6 +8,7 @@ import Modal2 from "../general/Modal2";
 
 function CandidateLogin() {
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -16,17 +17,17 @@ function CandidateLogin() {
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleOpen = () => {
     setOpen(true);
-  };
+  };  
   const handleClose1 = () => {
-    setOpen(false);
+    setOpen1(false);
+  };
+  const handleOpen1 = () => {
+    setOpen1(true);
   };
 
-  const handleOpen1 = () => {
-    setOpen(true);
-  };
+  
 
   // Function to handle form submission
   const handleSubmit = (event) => {
@@ -37,7 +38,9 @@ function CandidateLogin() {
       alert('Please fill out all fields');
       return; // Exit early, don't proceed to next page
     }else {
-      handleOpen();
+      console.log("yes user found in database")
+    handleOpen();
+    // alert('candidate present')
       
     }
 
@@ -58,9 +61,10 @@ function CandidateLogin() {
           setTimeout(() => {
           navigateToCandidateProfilePage();
           }, 1000);
-        } else {
-          handleOpen1();
+        } else  {
           console.log("Error received from backend: " + response.status);
+          handleOpen1();
+          setOpen(false)
         }
         
         // Reset form fields
@@ -121,9 +125,9 @@ function CandidateLogin() {
                 <h1 style={{ marginTop: '5rem' }}>Successfully Logged in!!</h1>
               </>
             </Modal>
-            <Modal2 isOpen={open} onClose={handleClose1}>
+            <Modal2 isOpen={open1} onClose={handleClose1}>
               <>
-                <h1 style={{ marginTop: '5rem' }}>Candidate not registered :(</h1>
+                <h1 style={{ marginTop: '3rem' }}>Candidate not registered :(</h1>
               </>
             </Modal2>
           </form>

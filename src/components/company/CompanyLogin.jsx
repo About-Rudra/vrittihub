@@ -11,6 +11,7 @@ import CandidateLogin from "../candidate/CandidateLogin";
 
 function CompanyLogin() {
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -24,11 +25,11 @@ function CompanyLogin() {
     setOpen(true);
   };
   const handleClose1 = () => {
-    setOpen(false);
+    setOpen1(false);
   };
 
   const handleOpen1 = () => {
-    setOpen(true);
+    setOpen1(true);
   };
 
   // Function to handle form submission
@@ -65,6 +66,7 @@ function CompanyLogin() {
 
         } else {
           handleOpen1();
+          setOpen(false);
           console.log("Error received from backend: " + response.status);
         }
 
@@ -129,7 +131,7 @@ function CompanyLogin() {
                 <h1 style={{ marginTop: '5rem' }}>Successfully Logged in!!</h1>
               </>
             </Modal>
-            <Modal2 isOpen={open} onClose={handleClose1}>
+            <Modal2 isOpen={open1} onClose={handleClose1}>
               <>
                 <h1 style={{ marginTop: '5rem' }}>Company not registered :(</h1>
               </>
