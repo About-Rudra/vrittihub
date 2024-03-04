@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Cookies from "js-cookie";
 
 function CandidateUploadPhoto() {
@@ -29,12 +30,18 @@ function CandidateUploadPhoto() {
         });
         const data = await response.json();
         console.log('Image uploaded successfully:', data.filePath);
-        
+        navigateToCandidateProfilePage();
         // Now you can store the file path (data.filePath) in your database
       } catch (error) {
         console.error('Error uploading image:', error);
       }
     };
+
+    const navigate = useNavigate();
+  function navigateToCandidateProfilePage() {
+    navigate('/candidateprofilepage')
+  }
+
 
     return (
         <div className="upload-container">

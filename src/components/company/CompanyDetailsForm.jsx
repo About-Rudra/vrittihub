@@ -70,14 +70,14 @@ function CompanyDetailsForm() {
     // Reset form fields
     setFormData({ companyname: '', qualification: '', contactnumber: '', position: '', skills: '', jd: '', location: '', interesteddomain: ''});
     setTimeout(() => {
-      navigateToCompanyProfilePage();
+      navigateToCompanyUploadPhoto();
     }, 2000);
     
   };
 
   const navigate = useNavigate();
-  function navigateToCompanyProfilePage(){
-    navigate('/companyprofilepage')
+  function navigateToCompanyUploadPhoto(){
+    navigate('/companyuploadphoto')
 }
 
   return (

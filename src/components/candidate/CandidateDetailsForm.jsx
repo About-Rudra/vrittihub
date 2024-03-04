@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import CandidateProfilePage from "./CandidateProfilePage";
 import Modal from "../general/Modal";
 import Cookies from "js-cookie";
+import CandidateUploadPhoto from "./CandidateUploadPhoto";
 
 function CandidateDetailsForm() {
   const [open, setOpen] = useState(false);
@@ -61,7 +62,7 @@ function CandidateDetailsForm() {
     // Reset form fields
     setFormData({ name: '', qualification: '', skills: '', achievements: '', contactno: '', interestedinternship: '', collegename: '' });
     setTimeout(() => {
-      navigateToCandidateProfilePage();
+      navigateToCandidateUploadPhoto();
     }, 2000);
 
   };
@@ -73,8 +74,8 @@ function CandidateDetailsForm() {
   };
 
   const navigate = useNavigate();
-  function navigateToCandidateProfilePage() {
-    navigate('/candidateprofilepage')
+  function navigateToCandidateUploadPhoto() {
+    navigate('/candidateuploadphoto')
   }
 
 
@@ -117,7 +118,7 @@ function CandidateDetailsForm() {
 
       </div>
       <Routes>
-        <Route path="/candidateprofilepage" element={<CandidateProfilePage />} />
+        <Route path="/candidateuploadphoto" element={<CandidateUploadPhoto />} />
       </Routes>
     </div>
   );
