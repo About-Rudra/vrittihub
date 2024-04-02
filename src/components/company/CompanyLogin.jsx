@@ -42,7 +42,10 @@ function CompanyLogin() {
       return; // Exit early, don't proceed to next page
     } else {
       handleOpen();
-      
+      setTimeout(() => {
+        navigateToCompanyProfilePage();
+      }, 1000);
+
     }
 
 
@@ -60,10 +63,7 @@ function CompanyLogin() {
           // Set the email id in a cookie
           Cookies.set('email', formData.email);
           Cookies.set('role', "company");
-          setTimeout(() => {
-            navigateToCompanyProfilePage();
-          }, 1000);
-
+         
         } else {
           handleOpen1();
           setOpen(false);

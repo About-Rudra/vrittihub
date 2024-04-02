@@ -40,6 +40,9 @@ function CandidateLogin() {
     }else {
       console.log("yes user found in database")
     handleOpen();
+    setTimeout(() => {
+      navigateToCandidateProfilePage();
+      }, 1000);
     // alert('candidate present')
       
     }
@@ -58,9 +61,7 @@ function CandidateLogin() {
           // Set the email id in a cookie
           Cookies.set('email', formData.email);
           Cookies.set('role', "candidate");
-          setTimeout(() => {
-          navigateToCandidateProfilePage();
-          }, 1000);
+         
         } else  {
           console.log("Error received from backend: " + response.status);
           handleOpen1();

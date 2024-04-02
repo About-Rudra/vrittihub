@@ -38,6 +38,9 @@ const handleOpen1 = () => {
       return;
     }else{
       handleOpen();
+      setTimeout(() => {
+        navigateToCandidateDetailsForm();
+      }, 1000);
     }
 
     fetch("http://localhost:5000/register", {
@@ -56,9 +59,7 @@ const handleOpen1 = () => {
           Cookies.set('email', formData.email);
           Cookies.set('role', "candidate");
           
-          setTimeout(() => {
-            navigateToCandidateDetailsForm();
-          }, 1000);
+          
         } else {
           if(response.status === 400) {
             handleOpen1();

@@ -52,6 +52,9 @@ function CompanySignup() {
         password: '',
       });
       handleOpen();
+      setTimeout(() => {
+        navigateToCompanyDetailsForm();
+      }, 1000);
     }
 
     // Process the form data (e.g., send it to the server)
@@ -72,9 +75,7 @@ function CompanySignup() {
           Cookies.set('email', formData.email);
           Cookies.set('role', "company");
 
-          setTimeout(() => {
-            navigateToCompanyDetailsForm();
-          }, 1000);
+         
         } else {
           if (response.status === 400) {
             //Bad request - User already exists

@@ -40,12 +40,15 @@ function CompanyDetailsForm() {
     event.preventDefault();
     console.log('Submit event fired: ', JSON.stringify(formData));
     formData.email = Cookies.get('email');
-    if (Object.values(formData).some(value => value.trim() === '')) {
+    if (Object.values(formData).some(value => (value ?? '').trim() === '')) {
       // At least one field is empty, display error message or prevent navigation
       alert('Please fill out all fields');
       return; // Exit early, don't proceed to next page
     } else {
       handleOpen();
+      setTimeout(() => {
+        navigateToCompanyUploadPhoto();
+      }, 2000);
     }
     // const email = Cookies.get('email');//getting email id from cookie
     // console.log("Retrieved email as: " + email);
@@ -69,9 +72,7 @@ function CompanyDetailsForm() {
       console.log('Form submitted:', formData);
     // Reset form fields
     setFormData({ companyname: '', qualification: '', contactnumber: '', position: '', skills: '', jd: '', location: '', interesteddomain: ''});
-    setTimeout(() => {
-      navigateToCompanyUploadPhoto();
-    }, 2000);
+    
     
   };
 

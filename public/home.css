@@ -1,4 +1,3 @@
-
 body{
     background-color: black;
    
@@ -30,7 +29,7 @@ cursor: pointer;
 }
 .card{
     display: grid;
-    grid-template-columns: repeat(2, 40rem);
+    grid-template-columns: repeat(2, 50%);
     background-color: black;
 }
 .card-img-top{
@@ -243,7 +242,7 @@ a{
 }
 .AreUA{ 
     text-align: center;
-    margin-left: 24rem;
+    
     align-self: center;
     justify-self: center;
 }
@@ -258,7 +257,7 @@ a{
 }
 #AreUAContainer{
     display: grid;
-    grid-template-columns: repeat(2, 25rem);
+    grid-template-columns: repeat(2, 50%);
     color: aliceblue;
     height: 70vh;
     font-family: 'Gotham Serif', sans-serif;
@@ -474,3 +473,8 @@ input[type="file"] {
 .skip-link:hover {
     text-decoration: underline;
 }
+@media(min-width:768px){
+    html{
+    font-size: 48.7%;
+    }
+    }
