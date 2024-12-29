@@ -9,7 +9,7 @@ import Header3 from "../general/Header3";
 function CompanyInternshipWhoApplied() {
 
     const location = useLocation();
-    
+                  
 
     const { internship } = location.state;
     console.log("this is internship object" + internship);

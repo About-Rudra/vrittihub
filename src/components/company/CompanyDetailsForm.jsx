@@ -109,7 +109,7 @@ function CompanyDetailsForm() {
             <button type="submit" class="signupco1" >Submit</button>
             <Modal isOpen={open} onClose={handleClose}>
               <>
-                <h1 style={{ marginTop: '5rem' }}>Thank you for the details!!</h1>
+                <h1 style={{ marginTop: '4rem' }}>Thank you for the details!!</h1>
               </>
             </Modal>
         </form>
