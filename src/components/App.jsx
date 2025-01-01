@@ -23,7 +23,7 @@ import CompanyExplorePage from "./company/CompanyExplorePage";
 import CandidateExplorePage from "./candidate/CandidateExplorePage";
 import CompanyMyPostings from "./company/CompanyMyPostings";
 import CompanyInternshipWhoApplied from "./company/CompanyInternshipWhoApplied";
-import EditCandidatePage from "./candidate/EditCandidateDetails";
+// import EditCandidatePage from "./candidate/EditCandidateDetails";
 import EditCandidateDetails from "./candidate/EditCandidateDetails";
 import EditCompanyDetails from "./company/EditCompanyDetails";
 import CandidateUploadPhoto from "./candidate/CandidateUploadPhoto";
@@ -84,47 +84,5 @@ export default App;
 
 
 
-// rendering name on login
-// import React, { useState } from "react";
 
-// function App() {
-//   const [name, tname] = useState("");
-//   const [lastName, lname] = useState("");
-//   const [newName, dispname] = useState("");
-//   const [newlName, displname] = useState("");
-
-//   function handleEvent(event) {
-//     console.log(event.target.value);
-//     tname(event.target.value);
-//   }
-//   function handleEvent1(event) {
-//     console.log(event.target.value);
-//     lname(event.target.value);
-//   }
-//   function clickEvent() {
-//     dispname(name);
-//     console.log(name);
-//     displname(lastName);
-//     console.log(lastName);
-//   }
-
-//   return (
-//     <div className="container">
-//       <h1>
-//         Hello {newName} {newlName}
-//       </h1>
-//       <input
-//         onChange={handleEvent}
-//         type="text"
-//         placeholder="What's your name?"
-//       />
-//       <input
-//         onChange={handleEvent1}
-//         type="text"
-//         placeholder="What's your last name?"
-//       />
-//       <button onClick={clickEvent}>Submit</button>
-//     </div>
-//   );
-// }
 
